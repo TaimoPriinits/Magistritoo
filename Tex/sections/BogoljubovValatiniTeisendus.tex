@@ -1,0 +1,271 @@
+\documentclass[class=article, crop=false]{standalone}
+\usepackage{standalone}
+\usepackage{mathptmx}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage[estonian .notilde]{babel}
+\usepackage{amssymb}
+\usepackage[makeroom]{cancel}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{setspace}
+\onehalfspacing
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[hidelinks]{hyperref}
+\sloppy
+\relpenalty=10000
+\binoppenalty=10000
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={160mm,235mm},
+	left=25mm,
+	top=20mm,
+}
+\usepackage{rotating}
+\usepackage{systeme}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\newcommand{\mathcolorbox}[2]{\colorbox{#1}{$\displaystyle #2$}}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\begin{document}
+\section{Bogoljubovi-Valantini teisendus}
+\begin{equation}\label{BogoljubovValatin}
+	\begin{cases}
+		a_{ \alpha \mathbf{k} \uparrow} = u_{ \alpha \mathbf{k}} \alpha_{ \alpha \mathbf{k} \uparrow} + v_{ \alpha \mathbf{k}}^{ \ast} \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} \\
+		a_{ \alpha - \mathbf{k} \downarrow} = u_{ \alpha \mathbf{k}} \alpha_{ \alpha - \mathbf{k} \downarrow} - v_{ \alpha \mathbf{k}}^{ \ast} \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger}
+	\end{cases}
+\end{equation}
+\begin{equation}\label{BogoljubovValatinTingimused}
+	\left| u_{ \mathbf{k}} \right|^{2} + \left| v_{ \mathbf{k}} \right|^{2} = 1; \quad u_{ - \mathbf{k}} = u_{ \mathbf{k}}; \quad v_{ - \mathbf{k}} = - v_{ \mathbf{k}}
+\end{equation}
+Fermionide statistikast tulenevad seosed, kus $ [A,B]_{+} $ on operaatorite A ja B antikommutatsioon.
+\begin{equation}\label{key}
+	\left[ \alpha_{ \mathbf{k} s}, \alpha_{ \mathbf{k}' s'}^{ \dagger} \right]_{+} = \delta_{ \mathbf{k} \mathbf{k}'} \delta_{ s s'}, \quad \left[ \alpha_{ \mathbf{k} s}, \alpha_{ \mathbf{k}' s'} \right]_{+} = 0, \quad \left[ \alpha_{ \mathbf{k} s}^{ \dagger}, \alpha_{ \mathbf{k}' s'}^{ \dagger} \right]_{+} = 0
+\end{equation}
+Teisendame liikmed\\
+I liige
+\begin{equation}\label{key}
+	\begin{split}
+		& \sum_{ \alpha} \sum_{ \mathbf{k}} \sum_{s} \tilde{ \varepsilon}_{ \alpha} ( \mathbf{k}) a^{ \dagger}_{ \alpha \mathbf{k} s} a_{ \alpha \mathbf{k} s} = \sum_{ \alpha} \sum_{ \mathbf{k}} \tilde{ \varepsilon}_{ \alpha} ( \mathbf{k}) \left[ a^{ \dagger}_{ \alpha \mathbf{k} \uparrow} a_{ \alpha \mathbf{k} \uparrow} + a^{ \dagger}_{ \alpha - \mathbf{k} \downarrow} a_{ \alpha - \mathbf{k} \downarrow} \right] = \\
+		& = \sum_{ \alpha} \sum_{ \mathbf{k}} \tilde{ \varepsilon}_{ \alpha} ( \mathbf{k}) 
+		[ \left( u_{ \alpha \mathbf{k}}^{ \ast} \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} + v_{ \alpha \mathbf{k}} \alpha_{ \alpha - \mathbf{k} \downarrow} \right)
+		\left( u_{ \alpha \mathbf{k}} \alpha_{ \alpha \mathbf{k} \uparrow} + v_{ \alpha \mathbf{k}}^{ \ast} \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} \right) + \\
+		& + \left( u_{ \alpha \mathbf{k}}^{ \ast} \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} - v_{ \alpha \mathbf{k}} \alpha_{ \alpha \mathbf{k} \uparrow} \right)
+		\left( u_{ \alpha \mathbf{k}} \alpha_{ \alpha - \mathbf{k} \downarrow} - v_{ \alpha \mathbf{k}}^{ \ast} \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \right) ] = \\
+		& = \sum_{ \alpha} \sum_{ \mathbf{k}} \tilde{ \varepsilon}_{ \alpha} ( \mathbf{k}) 
+		[ \underbrace{u_{ \alpha \mathbf{k}}^{ \ast} u_{ \alpha \mathbf{k}}}_{ \left| u_{ \alpha \mathbf{k}} \right|^{2}} \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha \mathbf{k} \uparrow} + 
+		u_{ \alpha \mathbf{k}}^{ \ast} v_{ \alpha \mathbf{k}}^{ \ast} \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} + \\
+		& + v_{ \alpha \mathbf{k}} u_{ \alpha \mathbf{k}} \alpha_{ \alpha - \mathbf{k} \downarrow} \alpha_{ \alpha \mathbf{k} \uparrow} + 
+		\underbrace{v_{ \alpha \mathbf{k}} v_{ \alpha \mathbf{k}}^{ \ast}}_{ \left| v_{ \alpha \mathbf{k}} \right|^{2}} \alpha_{ \alpha - \mathbf{k} \downarrow} \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} + \\
+		& + \underbrace{u_{ \alpha \mathbf{k}} u_{ \alpha \mathbf{k}}^{ \ast}}_{ \left| u_{ \alpha \mathbf{k}} \right|^{2}} \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k} \downarrow} - 
+		u_{ \alpha \mathbf{k}}^{ \ast} v_{ \alpha \mathbf{k}}^{ \ast} \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} - \\
+		& - v_{ \alpha \mathbf{k}} u_{ \alpha \mathbf{k}} \alpha_{ \alpha \mathbf{k} \uparrow} \alpha_{ \alpha - \mathbf{k} \downarrow} + 
+		\underbrace{v_{ \alpha \mathbf{k}} v_{ \alpha \mathbf{k}}^{ \ast}}_{ \left| v_{ \alpha \mathbf{k}} \right|^{2}} \alpha_{ \alpha \mathbf{k} \uparrow} \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} ] = \\
+		& = \sum_{ \alpha} \sum_{ \mathbf{k}} \tilde{ \varepsilon}_{ \alpha} ( \mathbf{k}) 
+		[ \left| u_{ \alpha \mathbf{k}} \right|^{2} \left( \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha \mathbf{k} \uparrow} + \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k} \downarrow} \right) + \\
+		& + \left| v_{ \alpha \mathbf{k}} \right|^{2} ( \underbrace{\alpha_{ \alpha - \mathbf{k} \downarrow} \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger}}_{1 - \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k} \downarrow}} + \underbrace{ \alpha_{ \alpha \mathbf{k} \uparrow} \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger}}_{1 - \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha \mathbf{k} \uparrow}} ) + \\
+		& +	u_{ \alpha \mathbf{k}}^{ \ast} v_{ \alpha \mathbf{k}}^{ \ast} ( \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} - \underbrace{\alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger}}_{- \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger}} ) + \\
+		& + v_{ \alpha \mathbf{k}} u_{ \alpha \mathbf{k}} ( \alpha_{ \alpha - \mathbf{k} \downarrow} \alpha_{ \alpha \mathbf{k} \uparrow} - \underbrace{\alpha_{ \alpha \mathbf{k} \uparrow} \alpha_{ \alpha - \mathbf{k} \downarrow}}_{- \alpha_{ \alpha - \mathbf{k} \downarrow} \alpha_{ \alpha \mathbf{k} \uparrow}} ) ] = \\
+		& = \sum_{ \alpha} \sum_{ \mathbf{k}} \tilde{ \varepsilon}_{ \alpha} ( \mathbf{k}) 
+		[ \left| u_{ \alpha \mathbf{k}} \right|^{2} \left( \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha \mathbf{k} \uparrow} + \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k} \downarrow} \right) + \\
+		& + \left| v_{ \alpha \mathbf{k}} \right|^{2} ( 1 - \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k} \downarrow} + 1 - \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha \mathbf{k} \uparrow} ) + \\
+		& +	u_{ \alpha \mathbf{k}}^{ \ast} v_{ \alpha \mathbf{k}}^{ \ast} ( \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} + \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} ) + \\
+		& + v_{ \alpha \mathbf{k}} u_{ \alpha \mathbf{k}} ( \alpha_{ \alpha - \mathbf{k} \downarrow} \alpha_{ \alpha \mathbf{k} \uparrow} + \alpha_{ \alpha - \mathbf{k} \downarrow} \alpha_{ \alpha \mathbf{k} \uparrow} ) ] = \\
+		& = \sum_{ \alpha} \sum_{ \mathbf{k}} \tilde{ \varepsilon}_{ \alpha} ( \mathbf{k}) 
+		[ 2 \left| v_{ \alpha \mathbf{k}} \right|^{2} + ( \left| u_{ \alpha \mathbf{k}} \right|^{2} - \left| v_{ \alpha \mathbf{k}} \right|^{2} ) \left( \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha \mathbf{k} \uparrow} + \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k} \downarrow} \right) + \\
+		& +	2 u_{ \alpha \mathbf{k}}^{ \ast} v_{ \alpha \mathbf{k}}^{ \ast} \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} + 2 v_{ \alpha \mathbf{k}} u_{ \alpha \mathbf{k}} \alpha_{ \alpha - \mathbf{k} \downarrow} \alpha_{ \alpha \mathbf{k} \uparrow} ]
+	\end{split}
+\end{equation}
+II liige
+\begin{equation}\label{key}
+	\begin{split}
+		& \sum_{ \alpha} \sum_{ \mathbf{k}} \Delta_{ \alpha \mathbf{k}} a^{ \dagger}_{ \alpha \mathbf{k} \uparrow} a^{ \dagger}_{ \alpha -\mathbf{k} \downarrow} = 
+		\sum_{ \alpha} \sum_{ \mathbf{k}} \Delta_{ \alpha \mathbf{k}} 
+		[ (u_{ \alpha \mathbf{k}}^{ \ast} \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} + v_{ \alpha \mathbf{k}} \alpha_{ \alpha - \mathbf{k} \downarrow}) (u_{ \alpha \mathbf{k}}^{ \ast} \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} - v_{ \alpha \mathbf{k}} \alpha_{ \alpha \mathbf{k} \uparrow})] = \\
+		& = \sum_{ \alpha} \sum_{ \mathbf{k}} \Delta_{ \alpha \mathbf{k}} [ \underbrace{u_{ \alpha \mathbf{k}}^{ \ast} u_{ \alpha \mathbf{k}}^{ \ast}}_{ \left( u_{ \alpha \mathbf{k}^{ \ast}} \right)^{2}} \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger}
+		- u_{ \alpha \mathbf{k}}^{ \ast} v_{ \alpha \mathbf{k}} \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha \mathbf{k} \uparrow} + \\
+		& + v_{ \alpha \mathbf{k}} u_{ \alpha \mathbf{k}}^{ \ast} \underbrace{\alpha_{ \alpha - \mathbf{k} \downarrow} \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger}}_{1 - \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k} \downarrow}}
+		- \underbrace{v_{ \alpha \mathbf{k}} v_{ \alpha \mathbf{k}}}_{ \left( v_{ \alpha \mathbf{k}} \right)^{2}} \alpha_{ \alpha - \mathbf{k} \downarrow} \alpha_{ \alpha \mathbf{k} \uparrow}] = \\
+		& = \sum_{ \alpha} \sum_{ \mathbf{k}} \Delta_{ \alpha \mathbf{k}} [ \left( u_{ \alpha \mathbf{k}}^{ \ast} \right)^{2} \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger}
+		- u_{ \alpha \mathbf{k}}^{ \ast} v_{ \alpha \mathbf{k}} \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha \mathbf{k} \uparrow} + \\
+		& + v_{ \alpha \mathbf{k}} u_{ \alpha \mathbf{k}}^{ \ast} - v_{ \alpha \mathbf{k}} u_{ \alpha \mathbf{k}}^{ \ast} \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k} \downarrow}
+		- \left( v_{ \alpha \mathbf{k}} \right)^{2} \alpha_{ \alpha - \mathbf{k} \downarrow} \alpha_{ \alpha \mathbf{k} \uparrow} ] = \\
+		& = \sum_{ \alpha} \sum_{ \mathbf{k}} \Delta_{ \alpha \mathbf{k}} [ \left( u_{ \alpha \mathbf{k}}^{ \ast} \right)^{2} \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} - \left( v_{ \alpha \mathbf{k}} \right)^{2} \alpha_{ \alpha - \mathbf{k} \downarrow} \alpha_{ \alpha \mathbf{k} \uparrow} - \\
+		& - v_{ \alpha \mathbf{k}} u_{ \alpha \mathbf{k}}^{ \ast} \left( \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k} \downarrow} + \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha \mathbf{k} \uparrow} \right) + v_{ \alpha \mathbf{k}} u_{ \alpha \mathbf{k}}^{ \ast} ]
+	\end{split}
+\end{equation}
+III liige
+\begin{equation}\label{key}
+	\begin{split}
+		& \sum_{ \alpha} \sum_{ \mathbf{k}'} \Delta_{ \alpha \mathbf{k}'}^{ \ast} a_{ \alpha -\mathbf{k}' \downarrow} a_{ \alpha \mathbf{k}' \uparrow} = \\
+		& = \sum_{ \alpha} \sum_{ \mathbf{k}'} \Delta_{ \alpha \mathbf{k}'}^{ \ast} \left( u_{ \alpha \mathbf{k}'} \alpha_{ \alpha - \mathbf{k}' \downarrow} - v_{ \alpha \mathbf{k}'}^{ \ast} \alpha_{ \alpha \mathbf{k}' \uparrow}^{ \dagger} \right) \left( u_{ \alpha \mathbf{k}'} \alpha_{ \alpha \mathbf{k}' \uparrow} + v_{ \alpha \mathbf{k}'}^{ \ast} \alpha_{ \alpha - \mathbf{k}' \downarrow}^{ \dagger} \right) = \\
+		& = \sum_{ \alpha} \sum_{ \mathbf{k}'} \Delta_{ \alpha \mathbf{k}'}^{ \ast} 
+		[ u_{ \alpha \mathbf{k}'} u_{ \alpha \mathbf{k}'} \alpha_{ \alpha - \mathbf{k}' \downarrow} \alpha_{ \alpha \mathbf{k}' \uparrow} 
+		+ u_{ \alpha \mathbf{k}'} v_{ \alpha \mathbf{k}'}^{ \ast} \underbrace{\alpha_{ \alpha - \mathbf{k}' \downarrow} \alpha_{ \alpha - \mathbf{k}' \downarrow}^{ \dagger}}_{1 - \alpha_{ \alpha - \mathbf{k}' \downarrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k}' \downarrow}} - \\
+		& - v_{ \alpha \mathbf{k}'}^{ \ast} u_{ \alpha \mathbf{k}'} \alpha_{ \alpha \mathbf{k}' \uparrow}^{ \dagger} \alpha_{ \alpha \mathbf{k}' \uparrow} 
+		- v_{ \alpha \mathbf{k}'}^{ \ast} v_{ \alpha \mathbf{k}'}^{ \ast} \alpha_{ \alpha \mathbf{k}' \uparrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k}' \downarrow}^{ \dagger} ] = \\
+		& = \sum_{ \alpha} \sum_{ \mathbf{k}'} \Delta_{ \alpha \mathbf{k}'}^{ \ast} 
+		[ \left( u_{ \alpha \mathbf{k}'} \right)^{2} \alpha_{ \alpha - \mathbf{k}' \downarrow} \alpha_{ \alpha \mathbf{k}' \uparrow} 
+		- \left( v_{ \alpha \mathbf{k}'}^{ \ast}\right)^{2} \alpha_{ \alpha \mathbf{k}' \uparrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k}' \downarrow}^{ \dagger} + \\
+		& + u_{ \alpha \mathbf{k}'} v_{ \alpha \mathbf{k}'}^{ \ast} - u_{ \alpha \mathbf{k}'} v_{ \alpha \mathbf{k}'}^{ \ast} \alpha_{ \alpha - \mathbf{k}' \downarrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k}' \downarrow} - v_{ \alpha \mathbf{k}'}^{ \ast} u_{ \alpha \mathbf{k}'} \alpha_{ \alpha \mathbf{k}' \uparrow}^{ \dagger} \alpha_{ \alpha \mathbf{k}' \uparrow} ] = \\
+		& = \sum_{ \alpha} \sum_{ \mathbf{k}'} \Delta_{ \alpha \mathbf{k}'}^{ \ast} 
+		[ \left( u_{ \alpha \mathbf{k}'} \right)^{2} \alpha_{ \alpha - \mathbf{k}' \downarrow} \alpha_{ \alpha \mathbf{k}' \uparrow} 
+		- \left( v_{ \alpha \mathbf{k}'}^{ \ast}\right)^{2} \alpha_{ \alpha \mathbf{k}' \uparrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k}' \downarrow}^{ \dagger} - \\
+		& - u_{ \alpha \mathbf{k}'} v_{ \alpha \mathbf{k}'}^{ \ast} \left( \alpha_{ \alpha - \mathbf{k}' \downarrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k}' \downarrow} + \alpha_{ \alpha \mathbf{k}' \uparrow}^{ \dagger} \alpha_{ \alpha \mathbf{k}' \uparrow} \right) + u_{ \alpha \mathbf{k}'} v_{ \alpha \mathbf{k}'}^{ \ast} ]
+	\end{split}
+\end{equation}
+IV liige jääb hetkel samaks, hiljem arvutame keskväärtuse.\\
+Kokku saame
+\begin{equation}\label{key}
+	\begin{split}
+		\hat{H}_{mf} = & \sum_{ \alpha} \sum_{ \mathbf{k}} \tilde{ \varepsilon}_{ \alpha} ( \mathbf{k}) 
+		[ \mathcolorbox{red}{2 \left| v_{ \alpha \mathbf{k}} \right|^{2}} + ( \left| u_{ \alpha \mathbf{k}} \right|^{2} - \left| v_{ \alpha \mathbf{k}} \right|^{2} ) \mathcolorbox{yellow}{ \left( \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha \mathbf{k} \uparrow} + \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k} \downarrow} \right)} + \\
+		+ & 2 u_{ \alpha \mathbf{k}}^{ \ast} v_{ \alpha \mathbf{k}}^{ \ast} \mathcolorbox{green}{ \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger}} + 2 v_{ \alpha \mathbf{k}} u_{ \alpha \mathbf{k}} \mathcolorbox{cyan}{ \alpha_{ \alpha - \mathbf{k} \downarrow} \alpha_{ \alpha \mathbf{k} \uparrow}} ] + \\
+		+ & \sum_{ \alpha} \sum_{ \mathbf{k}} \Delta_{ \alpha \mathbf{k}} [ \left( u_{ \alpha \mathbf{k}}^{ \ast} \right)^{2} \mathcolorbox{green}{ \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger}} - \left( v_{ \alpha \mathbf{k}} \right)^{2} \mathcolorbox{cyan}{ \alpha_{ \alpha - \mathbf{k} \downarrow} \alpha_{ \alpha \mathbf{k} \uparrow}} - \\
+		- & v_{ \alpha \mathbf{k}} u_{ \alpha \mathbf{k}}^{ \ast} \mathcolorbox{yellow}{ \left( \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k} \downarrow} + \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha \mathbf{k} \uparrow} \right)} + \mathcolorbox{red}{v_{ \alpha \mathbf{k}} u_{ \alpha \mathbf{k}}^{ \ast}} ] + \\
+		+ & \sum_{ \alpha} \sum_{ \mathbf{k}'} \Delta_{ \alpha \mathbf{k}'}^{ \ast} 
+		[ \left( u_{ \alpha \mathbf{k}'} \right)^{2} \mathcolorbox{cyan}{ \alpha_{ \alpha - \mathbf{k}' \downarrow} \alpha_{ \alpha \mathbf{k}' \uparrow}} 
+		- \left( v_{ \alpha \mathbf{k}'}^{ \ast}\right)^{2} \mathcolorbox{green}{ \alpha_{ \alpha \mathbf{k}' \uparrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k}' \downarrow}^{ \dagger}} - \\
+		- & u_{ \alpha \mathbf{k}'} v_{ \alpha \mathbf{k}'}^{ \ast} \mathcolorbox{yellow}{ \left( \alpha_{ \alpha - \mathbf{k}' \downarrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k}' \downarrow} + \alpha_{ \alpha \mathbf{k}' \uparrow}^{ \dagger} \alpha_{ \alpha \mathbf{k}' \uparrow} \right)} + \mathcolorbox{red}{u_{ \alpha \mathbf{k}'} v_{ \alpha \mathbf{k}'}^{ \ast}} ] \\
+		- & \sum_{ \alpha} \sum_{ \mathbf{k}} \mathcolorbox{red}{ \Delta_{ \alpha \mathbf{k}} \left\langle a^{ \dagger}_{ \alpha \mathbf{k} \uparrow} a^{ \dagger}_{ \alpha -\mathbf{k} \downarrow} \right\rangle} = \\
+		\overset{ \mathbf{k}' = \mathbf{k}}{=} & \sum_{ \alpha} \sum_{ \mathbf{k}} \lbrace 2 \tilde{ \varepsilon}_{ \alpha} ( \mathbf{k}) \left| v_{ \alpha \mathbf{k}} \right|^{2} + \Delta_{ \alpha \mathbf{k}} v_{ \alpha \mathbf{k}} u_{ \alpha \mathbf{k}}^{ \ast} + \Delta_{ \alpha \mathbf{k}}^{ \ast} u_{ \alpha \mathbf{k}} v_{ \alpha \mathbf{k}}^{ \ast} - \Delta_{ \alpha \mathbf{k}} \left\langle a^{ \dagger}_{ \alpha \mathbf{k} \uparrow} a^{ \dagger}_{ \alpha -\mathbf{k} \downarrow} \right\rangle + \\
+		+ & \left[ \tilde{ \varepsilon}_{ \alpha} ( \mathbf{k}) \left( \left| u_{ \alpha \mathbf{k}} \right|^{2} - \left| v_{ \alpha \mathbf{k}} \right|^{2} \right) - \Delta_{ \alpha \mathbf{k}} v_{ \alpha \mathbf{k}} u_{ \alpha \mathbf{k}}^{ \ast} - \Delta_{ \alpha \mathbf{k}}^{ \ast} u_{ \alpha \mathbf{k}} v_{ \alpha \mathbf{k}}^{ \ast} \right] \times \\
+		\times & \mathcolorbox{yellow}{ \left( \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha \mathbf{k} \uparrow} + \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k} \downarrow} \right)} + \\
+		+ & \left( 2 \tilde{ \varepsilon}_{ \alpha} ( \mathbf{k}) u_{ \alpha \mathbf{k}}^{ \ast} v_{ \alpha \mathbf{k}}^{ \ast} + \Delta_{ \alpha \mathbf{k}} \left( u_{ \alpha \mathbf{k}}^{ \ast} \right)^{2} - \Delta_{ \alpha \mathbf{k}}^{ \ast} \left( v_{ \alpha \mathbf{k}}^{ \ast} \right)^{2} \right) \mathcolorbox{green}{ \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha - \mathbf{k} \downarrow}^{ \dagger}} + \\
+		+ & \left( 2 \tilde{ \varepsilon}_{ \alpha} ( \mathbf{k}) v_{ \alpha \mathbf{k}} u_{ \alpha \mathbf{k}} - \Delta_{ \alpha \mathbf{k}} \left( v_{ \alpha \mathbf{k}} \right)^{2} + \Delta_{ \alpha \mathbf{k}}^{ \ast} \left( u_{ \alpha \mathbf{k}} \right)^{2} \right) \mathcolorbox{cyan}{ \alpha_{ \alpha - \mathbf{k} \downarrow} \alpha_{ \alpha \mathbf{k} \uparrow}} \rbrace
+	\end{split}
+\end{equation}
+Liikmed operaatoritega $ \alpha \alpha $ ja $ \alpha^{ \dagger} \alpha^{ \dagger} $ ei ole diagonaalil, nõuame, et kehtiks tingimused
+\begin{equation}\label{Mittediagonaalil}
+	\begin{split}
+		2 \tilde{ \varepsilon}_{ \alpha} ( \mathbf{k}) v_{ \alpha \mathbf{k}} u_{ \alpha \mathbf{k}} - \Delta_{ \alpha \mathbf{k}} \left( v_{ \alpha \mathbf{k}} \right)^{2} + \Delta_{ \alpha \mathbf{k}}^{ \ast} \left( u_{ \alpha \mathbf{k}} \right)^{2} = & 0 \\
+		2 \tilde{ \varepsilon}_{ \alpha} ( \mathbf{k}) u_{ \alpha \mathbf{k}}^{ \ast} v_{ \alpha \mathbf{k}}^{ \ast} + \Delta_{ \alpha \mathbf{k}} \left( u_{ \alpha \mathbf{k}}^{ \ast} \right)^{2} - \Delta_{ \alpha \mathbf{k}}^{ \ast} \left( v_{ \alpha \mathbf{k}}^{ \ast} \right)^{2} = & 0
+	\end{split}
+\end{equation}
+Tähistame
+\begin{equation}\label{key}
+	\begin{split}
+		E_{0} = & \sum_{ \alpha} \sum_{ \mathbf{k}} \left\lbrace 2 \tilde{ \varepsilon}_{ \alpha} ( \mathbf{k}) \left| v_{ \alpha \mathbf{k}} \right|^{2} + \Delta_{ \alpha \mathbf{k}} v_{ \alpha \mathbf{k}} u_{ \alpha \mathbf{k}}^{ \ast} + \Delta_{ \alpha \mathbf{k}}^{ \ast} u_{ \alpha \mathbf{k}} v_{ \alpha \mathbf{k}}^{ \ast} - \Delta_{ \alpha \mathbf{k}} \left\langle a^{ \dagger}_{ \alpha \mathbf{k} \uparrow} a^{ \dagger}_{ \alpha -\mathbf{k} \downarrow} \right\rangle \right\rbrace  \\
+		E_{ \alpha} ( \mathbf{k}) = & \tilde{ \varepsilon}_{ \alpha} ( \mathbf{k}) \left( \left| u_{ \alpha \mathbf{k}} \right|^{2} - \left| v_{ \alpha \mathbf{k}} \right|^{2} \right) - \Delta_{ \alpha \mathbf{k}} v_{ \alpha \mathbf{k}} u_{ \alpha \mathbf{k}}^{ \ast} - \Delta_{ \alpha \mathbf{k}}^{ \ast} u_{ \alpha \mathbf{k}} v_{ \alpha \mathbf{k}}^{ \ast}
+	\end{split}
+\end{equation}
+Seega
+\begin{equation}\label{key}
+	H_{mf} = E_{0} + \sum_{ \alpha} \sum_{ \mathbf{k}} \sum_{s} E_{ \alpha} ( \mathbf{k}) \alpha_{ \alpha \mathbf{k} s}^{ \dagger} \alpha_{ \alpha \mathbf{k} s}
+\end{equation}
+\subsection{Bogoljubov-Valatini teisenduse kordajad}
+Kkasutame seoseid (\ref{Mittediagonaalil}), lihtsuse mõttes jätame indeksid ära
+\begin{equation}\label{VJagatudU}
+	\begin{split}
+		2 \varepsilon v u - \Delta v^{2} + \Delta^{ \ast} u^{2} = & 0 \quad | \cdot \frac{ \Delta}{u^{2}} \\
+		\frac{2 \varepsilon v u \Delta}{u^{2}}  - \frac{ \Delta v^{2} \Delta}{u_{2}} + \frac{ \Delta^{ \ast} u^{2} \Delta}{ u^{2}} = & 0 | \cdot (-1) \\
+		\left( \frac{ \Delta v}{u} \right)^{2} - 2 \varepsilon \frac{ \Delta v}{u} - | \Delta|^{2} = & 0 \\
+		\Rightarrow \Delta \frac{v}{u} = \varepsilon \pm \sqrt{ \varepsilon^{2} + |\Delta|^{2} } \equiv & E \pm \varepsilon \Rightarrow \frac{v}{u} = \frac{ \varepsilon - \sqrt{ \varepsilon^{2} + | \Delta|^{2}}}{ \Delta}
+	\end{split}
+\end{equation}
+\begin{equation}\label{VJahatudUKaaskompleks}
+	\begin{split}
+		2 \varepsilon u^{ \ast} v^{ \ast} + \Delta (u^{ \ast})^{2} - \Delta^{ \ast} (v^{ \ast})^{2} = & 0 \quad | \cdot \frac{ \Delta^{ \ast}}{(u^{ \ast})^{2}} \\
+		2 \varepsilon u^{ \ast} v^{ \ast} \frac{ \Delta^{ \ast}}{(u^{ \ast})^{2}} + \Delta (u^{ \ast})^{2} \frac{ \Delta^{ \ast}}{(u^{ \ast})^{2}} - \Delta^{ \ast} (v^{ \ast})^{2} \frac{ \Delta^{ \ast}}{(u^{ \ast})^{2}} = & 0 \quad | \cdot (-1) \\
+		\left( \frac{ \Delta^{ \ast} v^{ \ast}}{u^{ \ast}} \right)^{2} - 2 \varepsilon \frac{ \Delta^{ \ast} v^{ \ast}}{u^{ \ast}} - | \Delta|^{2} = & 0 \\
+		\Rightarrow \frac{ \Delta^{ \ast} v^{ \ast}}{u^{ \ast}} = \varepsilon \pm \sqrt{ \varepsilon^{2} + | \Delta|^{2}} \equiv & \varepsilon \pm E \Rightarrow \frac{v^{ \ast}}{u^{ \ast}} = \frac{ \varepsilon - \sqrt{ \varepsilon^{2} + | \Delta|^{2}}}{ \Delta^{ \ast}}
+	\end{split}
+\end{equation}
+Leiame $ |u|^{2} $ ja $ |v|^{2} $, kasutame seostest (\ref{BogoljubovValatinTingimused}) esimest
+\begin{equation}\label{key}
+	|u|^{2} + |v|^{2} = 1 \Rightarrow |u|^{2} = 1 - |v|^{2}
+\end{equation}
+\begin{equation}\label{URuutAbi}
+	\frac{1}{1 + \left| \frac{v}{u} \right|^{2}} = \frac{1}{ \frac{|u|^{2} + |v|^{2}}{|u|^{2}}} = \frac{|u|^{2}}{\underbrace{|u|^{2} + |v|^{2}}_{=1}} = |u|^{2}
+\end{equation}
+Asendame seosed (\ref{VJagatudU}) (\ref{VJahatudUKaaskompleks}) võrrandisse (\ref{URuutAbi})
+\begin{equation}\label{key}
+	\frac{v}{u} \frac{v^{ \ast}}{u^{ \ast}} = \frac{ \varepsilon - E}{ \Delta} \frac{ \varepsilon - E}{ \Delta^{ \ast}} = \frac{( \varepsilon - E)^{2}}{| \Delta|^{2}} = \left| \frac{v}{u} \right|^{2}
+\end{equation}
+\begin{equation}\label{URuut}
+	\begin{split}
+		|u|^{2} = & \left( 1 + \left| \frac{v}{u} \right|^{2} \right)^{-1} = \left( 1 + \left| \frac{ \sqrt{ \varepsilon^{2} + | \Delta|^{2}} - \varepsilon}{ \Delta} \right|^{2} \right)^{-1} = \\
+		= & \left( 1 + \frac{( \varepsilon - E)^{2}}{| \Delta|^{2}} \right)^{-1} = \left(\frac{| \Delta|^{2} + \varepsilon^{2} - 2 \varepsilon E + E^{2}}{ E^{2} - \varepsilon^{2}} \right)^{-1} = \left( \frac{2E^{2} - 2 \varepsilon E}{E^{2} - \varepsilon^{2}} \right)^{-1} = \\
+		= & \left( \frac{2 E^{2} (1 - \varepsilon/E)}{E^{2} (1 - ( \varepsilon^{2}/E)^{2})} \right)^{-1} = \left( \frac{2}{1 + \varepsilon/E} \right)^{-1} = \frac{1}{2} \left( 1 + \frac{ \varepsilon}{E} \right) 
+	\end{split}
+\end{equation}
+\begin{equation}\label{VRuut}
+	|u|^{2} + |v|^{2} = 1 \Rightarrow |v|^{2} = 1 - |u|^{2} = 1 - \frac{1}{2} \left( 1 + \frac{ \varepsilon}{E} \right) = \frac{1}{2} \left( 1 - \frac{ \varepsilon}{E} \right)
+\end{equation}
+Leiame $ v u^{ \ast} $ ja $ u v^{ \ast} $. Seosest (\ref{VJagatudU}) ja (\ref{VJahatudUKaaskompleks}) saame
+\begin{equation}\label{key}
+	\begin{split}
+		\frac{v}{u} = & \frac{v}{u} \frac{u^{ \ast}}{u^{ \ast}} = \frac{v u^{ \ast}}{|u|^{2}} = \frac{ \varepsilon - E}{ \Delta} \Rightarrow v u^{ \ast} = |u|^{2} \frac{ \varepsilon - E}{ \Delta} \overset{( \ref{URuut})}{=} \frac{1}{2} \left( 1 + \frac{ \varepsilon}{E} \right) \frac{ \varepsilon - E}{ \Delta} = \\
+		= & \frac{1}{2} \frac{ E + \varepsilon}{E} \frac{\varepsilon - E}{ \Delta} = \frac{1}{2} \frac{\varepsilon^{2} - E^{2}}{ E \Delta} = \frac{1}{2} \frac{ \varepsilon^{2} - \varepsilon^{2} - | \Delta|^{2}}{E \Delta} = - \frac{ \Delta^{ \ast}}{2 E}
+	\end{split}
+\end{equation}
+\begin{equation}\label{key}
+	\begin{split}
+		\frac{v^{ \ast}}{u^{ \ast}} = & \frac{v^{ \ast}}{u^{ \ast}} \frac{u}{u} = \frac{v^{ \ast} u}{|u|^{2}} = \frac{ \varepsilon - E}{ \Delta^{ \ast}} \\
+		\Rightarrow u v^{ \ast} = & \frac{ \varepsilon - E}{ \Delta^{ \ast}} |u|^{2} = \frac{ \varepsilon - E}{ \Delta^{ \ast}} \frac{1}{2} \left( 1 + \frac{ \varepsilon}{E} \right) = \frac{1}{2 E \Delta^{ \ast}} ( \varepsilon^{2} - E^{2}) = \frac{- | \Delta|^{2}}{2 E \Delta^{ \ast}} = - \frac{ \Delta}{2 E}
+	\end{split}
+\end{equation}
+Kokku saime
+\begin{equation}\label{URuutVRuutVUUV}
+	|u|^{2} = \frac{1}{2} \left( 1 + \frac{ \varepsilon}{E} \right), \quad |v|^{2} = \frac{1}{2} \left( 1 - \frac{ \varepsilon}{E} \right), \quad v u^{ \ast} = - \frac{ \Delta^{ \ast}}{2 E}, \quad u v^{ \ast} = - \frac{ \Delta}{2 E}
+\end{equation}
+\subsection{Ergastusenergia ja põhiseisundi energia}
+Saadud seostega (\ref{URuutVRuutVUUV}) saame arvutada $ E_{0} $-s oleva keskväärtuse, lihtsuse mõttes jätame alles ainult spinni indeksi, pidades meeles, et $ \downarrow $ spinnile vastab $ - \mathbf{k} $ ja $ \uparrow $ spinnile vastab $ \mathbf{k} $
+\begin{equation}\label{key}
+	\begin{split}
+		\langle a_{ \uparrow} a_{ \downarrow} \rangle = & \langle (u \alpha_{ \uparrow} + v^{ \ast} \alpha_{ \downarrow}^{ \dagger})(u \alpha_{ \downarrow} - v^{ \ast} \alpha_{ \uparrow}^{ \dagger}) \rangle = \\
+		= & \langle u \alpha_{ \uparrow} u \alpha_{ \downarrow} - u \alpha_{ \uparrow} v^{ \ast} \alpha_{ \uparrow}^{ \dagger} + v^{ \ast} \alpha_{ \downarrow}^{ \dagger} u \alpha_{ \downarrow} - v^{ \ast} \alpha_{ \downarrow}^{ \dagger} v^{ \ast} \alpha_{ \uparrow}^{ \dagger} \rangle = \\
+		= & u^{2} \underbrace{\langle \alpha_{ \uparrow} \alpha_{ \downarrow} \rangle}_{0} - u v^{ \ast} \underbrace{\langle \alpha_{ \uparrow} \alpha_{ \uparrow}^{ \dagger} \rangle}_{1 - \langle \alpha_{ \uparrow}^{ \dagger} \alpha_{ \uparrow} \rangle} + v^{ \ast} u \langle \alpha_{ \downarrow}^{ \dagger} \alpha_{ \downarrow} \rangle - (v^{ \ast})^{2} \underbrace{\langle \alpha_{ \downarrow}^{ \dagger} \alpha_{ \uparrow}^{ \dagger} \rangle}_{0} = \\
+		= & u v^{ \ast} \left( - 1 + \langle \alpha_{ \uparrow}^{ \dagger} \alpha_{ \uparrow} \rangle + \langle \alpha_{ \downarrow}^{ \dagger} \alpha_{ \downarrow} \rangle \right) = u v^{ \ast} \left( 2 f (E) - 1 \right) = \\
+		= & - \frac{ \Delta}{2 E} \left( \frac{2}{ \exp ( \beta E) + 1} - 1 \right) = - \frac{ \Delta}{2 E} \left( \frac{1 - \exp ( \beta E)}{ \exp ( \beta E) + 1} \right) = \\
+		= & \frac{ \Delta}{2 E} \frac{ \exp ( \beta E) - 1}{ \exp ( \beta E) + 1} = \frac{ \Delta}{2 E} \tanh \left( \frac{ \beta E}{2} \right) 
+	\end{split}
+\end{equation}
+ehk
+\begin{equation}\label{key}
+	\left\langle a_{ \alpha \mathbf{k} \uparrow} a_{ \alpha -\mathbf{k} \downarrow} \right\rangle = \frac{1}{2} \Delta_{ \alpha \mathbf{k}} \xi_{ \alpha \mathbf{k}} \Rightarrow \left\langle a_{ \alpha \mathbf{k} \uparrow}^{ \dagger} a_{ \alpha -\mathbf{k} \downarrow}^{ \dagger} \right\rangle = \frac{1}{2} \Delta_{ \alpha \mathbf{k}}^{ \ast} \xi_{ \alpha \mathbf{k}},
+\end{equation}
+kus
+\begin{equation}\label{key}
+	\xi_{ \alpha \mathbf{k}} = E_{ \alpha}^{-1} ( \mathbf{k}) \tanh \frac{E_{ \alpha} ( \mathbf{k})}{2 k_{B} T}
+\end{equation}
+Analoogselt
+\begin{equation}\label{key}
+	\begin{split}
+		\langle a_{ \downarrow} a_{ \uparrow} \rangle = & \langle (u \alpha_{ \downarrow} - v^{ \ast} \alpha_{ \uparrow}^{ \dagger}) (u \alpha_{ \uparrow} + v^{ \ast} \alpha_{ \downarrow}^{ \dagger}) \rangle = \\
+		= & \langle u \alpha_{ \downarrow} u \alpha_{ \uparrow} + u \alpha_{ \downarrow} v^{ \ast} \alpha_{ \downarrow}^{ \dagger} - v^{ \ast} \alpha_{ \uparrow}^{ \dagger} u \alpha_{ \uparrow} - v^{ \ast} \alpha_{ \uparrow}^{ \dagger} v^{ \ast} \alpha_{ \downarrow}^{ \dagger} \rangle = \\
+		= & u^{2} \underbrace{\langle \alpha_{ \downarrow} \alpha_{ \downarrow} \rangle}_{0} + u v^{ \ast} \underbrace{ \langle \alpha_{ \alpha \mathbf{k} \uparrow} \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \rangle}_{1 - \langle \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha \mathbf{k} \uparrow} \rangle} - v^{ \ast} u \langle \alpha_{ \uparrow}^{ \dagger} \alpha_{ \uparrow} \rangle - (v^{ \ast})^{2} \underbrace{\langle \alpha_{ \uparrow}^{ \dagger} \alpha_{ \downarrow}^{ \dagger} \rangle}_{0} = \\
+		= & u v^{ \ast} (1 - 2 \langle \alpha_{ \alpha \mathbf{k} \uparrow}^{ \dagger} \alpha_{ \alpha \mathbf{k} \uparrow} \rangle) = u v^{ \ast} (1 - 2 f(E)) = \\
+		= & - \frac{ \Delta}{2 E} \left( 1 - \frac{2}{ \exp ( \beta E) - 1} \right) = - \frac{ \Delta}{2 E} \left( \frac{\exp ( \beta E) - 1 + 2}{ \exp ( \beta E) - 1} \right) = \\
+		= & - \frac{ \Delta}{2 E} \left( \frac{\exp ( \beta E) + 1}{ \exp ( \beta E) - 1} \right) = - \frac{ \Delta}{2 E} \tanh \left( \frac{ \beta E}{2} \right) 
+	\end{split}
+\end{equation}
+ehk
+\begin{equation}\label{key}
+	\left\langle a_{ \alpha -\mathbf{k} \downarrow} a_{ \alpha \mathbf{k} \uparrow} \right\rangle = - \frac{1}{2} \Delta_{ \alpha \mathbf{k}} \xi_{ \alpha \mathbf{k}}
+\end{equation}
+Arvutame $ E_{0} $ ja $ E_{ \alpha} ( \mathbf{k}) $
+\begin{equation}\label{key}
+	\begin{split}
+		E_{0} = & 2 \varepsilon |v|^{2} + \Delta v u^{ \ast} + \Delta^{ \ast} u v^{ \ast} + \frac{1}{2} | \Delta|^{2} \xi = \\
+		= & 2 \varepsilon \frac{1}{2} \left( 1 - \frac{ \varepsilon}{E} \right) + \Delta \left( - \frac{1}{2} \frac{ \Delta^{ \ast}}{E} \right) + \Delta^{ \ast} \left( - \frac{1}{2} \frac{ \Delta}{E} \right) + \frac{1}{2} | \Delta|^{2} \xi = \\
+		= & \varepsilon - \frac{ \varepsilon^{2}}{E} - \frac{1}{2} \frac{| \Delta|^{2}}{E} - \frac{1}{2} \frac{| \Delta|^{2}}{E} + \frac{1}{2} | \Delta|^{2} \xi \\
+		= & \varepsilon - \frac{ \varepsilon^{2} + | \Delta|^{2}}{E} + \frac{1}{2} | \Delta|^{2} \xi = \varepsilon - E + \frac{1}{2} | \Delta|^{2} \xi
+	\end{split}
+\end{equation}
+\begin{equation}\label{key}
+	\begin{split}
+		E = & \varepsilon (|u|^{2} - |v|^{2}) - \Delta v u^{ \ast} - \Delta^{ \ast} u v^{ \ast} = \\
+		= & \varepsilon (2 |u|^{2} - 1) - \Delta v u^{ \ast} - \Delta^{ \ast} u v^{ \ast} = \\
+		= & \varepsilon 2 \frac{1}{2} \left( 1 + \frac{ \varepsilon}{E} \right) - \varepsilon - \Delta \left( - \frac{1}{2} \frac{ \Delta^{ \ast}}{E} \right) - \Delta^{ \ast} \frac{1}{2} \frac{ \Delta}{E} = \\
+		= & \varepsilon + \frac{ \varepsilon^{2}}{E} - \varepsilon + \frac{| \Delta|^{2}}{2 E} - \frac{| \Delta|^{2}}{2 E} = \frac{ \varepsilon^{2}}{E} + \frac{| \Delta|^{2}}{E} = E \Rightarrow \varepsilon^{2} + | \Delta|^{2} = E^{2}
+	\end{split}
+\end{equation}
+\end{document}

@@ -1,0 +1,7 @@
+Kas valemis (66) ja valemis (67) olevad Deltad on sama tähendusega, mida muudab Phi-ga läbi jagamine?
+Kui õige on nimetada valemis (70) Gammasid effektiivseteks interaktsiooni konstantideks? Mis on nende sisu?
+Miks on kõikides Gammades sees kõik tõukeintraktsiooni konstandid, aga tõmbeinteraktsiooni konstant on ainult üks? 
+V on tõmbeinteraktsioon
+U on tõukeinteraktsioon
+
+elektron-elektron interaktioonikanalite segunemine kahetsoonilises ülijuhis

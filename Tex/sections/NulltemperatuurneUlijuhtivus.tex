@@ -1,0 +1,127 @@
+\documentclass[class=article, crop=false]{standalone}
+\usepackage{standalone}
+\usepackage{mathptmx}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage[estonian .notilde]{babel}
+\usepackage{amssymb}
+\usepackage[makeroom]{cancel}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{setspace}
+\onehalfspacing
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[hidelinks]{hyperref}
+\sloppy
+\relpenalty=10000
+\binoppenalty=10000
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={160mm,235mm},
+	left=25mm,
+	top=20mm,
+}
+\usepackage{rotating}
+\usepackage{systeme}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\newcommand{\mathcolorbox}[2]{\colorbox{#1}{$\displaystyle #2$}}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\begin{document}
+\newpage	
+\section{Nulletemperatuurne ülijuhtvus}
+Juhul, kui temperatuur on 0 K, saame lihtsustada integraali (\ref{etaDefinitsioonid})
+\begin{equation}\label{key}
+	\lim_{T \rightarrow 0} \tanh \frac{E ( \Delta_{ \alpha})}{2 k_{B} T} = 1
+\end{equation}
+Seega
+\begin{equation}\label{key}
+	\begin{split}
+		\eta_{ \alpha} (0, \Delta_{ \alpha}) = & \int_{0}^{ \hbar \omega_{D}} \frac{d \tilde{ \varepsilon}_{ \alpha}}{ \sqrt{ \tilde{ \varepsilon}_{ \alpha}^{2} + \left| \Delta_{ \alpha} \right|^{2}}} = \left. \ln \left( \tilde{ \varepsilon}_{ \alpha} + \sqrt{ \tilde{ \varepsilon}_{ \alpha}^{2} + \left| \Delta_{ \alpha} \right|^{2}} \right) \right|_{0}^{ \hbar \omega_{D}} = \\
+		= & \ln \left( \hbar \omega_{D} + \sqrt{ \left( \hbar \omega_{D} \right)^{2} + \left| \Delta_{ \alpha} \right|^{2}} \right) - 2 \ln \left| \Delta_{ \alpha} \right|^{2} = \\
+		= & \ln \left( \frac{ \hbar \omega_{D} + \sqrt{ \left( \hbar \omega_{D} \right)^{2} + \left| \Delta_{ \alpha} \right|^{2}}}{ \left| \Delta_{ \alpha} \right|^{2}} \right) = \\
+		= & \ln \left( \frac{ \hbar \omega_{D} + \sqrt{ \left( \hbar \omega_{D} \right)^{2} \left( 1 + \frac{ \left| \Delta_{ \alpha} \right|^{2}}{ \left( \hbar \omega_{D} \right)^{2}} \right)}}{ \left| \Delta_{ \alpha} \right|^{2}} \right) \overset{\left( \hbar \omega_{D} \right)^{2} \gg \left| \Delta_{ \alpha} \right|^{2}}{ \approx} \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ \alpha} \right|^{2}} \right) 
+	\end{split}
+\end{equation}
+Asendame saadud tulemuse võrrandisüsteemi (\ref{PiluVorrandiSusteemGamma})
+\begin{equation}\label{PiluVorrandiSusteemNullTemp}
+	\begin{cases}
+		\Delta_{1} = \Delta_{1} \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 1} \right|^{2}} \right) \Gamma_{11} + 
+		\Delta_{2} \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 2} \right|^{2}} \right) \Gamma_{12} \\
+		\Delta_{2} = \Delta_{1} \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 1} \right|^{2}} \right) \Gamma_{21} + \Delta_{2} \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 2} \right|^{2}} \right) \Gamma_{22}
+	\end{cases}
+\end{equation}
+\begin{equation}\label{key}
+	\Delta_{1} = \left| \Delta_{1} \right| e^{i \phi_{1}},\ \Delta_{2} = \left| \Delta_{2} \right| e^{i \phi_{2}} \Rightarrow \kappa \equiv \frac{ \Delta_{1}}{ \Delta_{2}} = \frac{ \left| \Delta_{1} \right|}{\left| \Delta_{2} \right|} e^{i ( \phi_{1} - \phi_{2})}
+\end{equation}
+\begin{equation}\label{PiluVorrandiSusteemNullTemp}
+	\begin{cases}
+		\left| \Delta_{1} \right| e^{i \phi_{1}} = \left| \Delta_{1} \right| e^{i \phi_{1}} \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 1} \right|^{2}} \right) \Gamma_{11} + 
+		\left| \Delta_{2} \right| e^{i \phi_{2}} \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 2} \right|^{2}} \right) \Gamma_{12} \\
+		\left| \Delta_{2} \right| e^{i \phi_{2}} = \left| \Delta_{1} \right| e^{i \phi_{1}} \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 1} \right|^{2}} \right) \Gamma_{21} + \left| \Delta_{2} \right| e^{i \phi_{2}} \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 2} \right|^{2}} \right) \Gamma_{22}
+	\end{cases}
+\end{equation}
+\begin{equation}\label{key}
+	\begin{cases}
+		1 = \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 1} \right|^{2}} \right) \Gamma_{11} + 
+		\kappa^{-1} \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 2} \right|^{2}} \right) \Gamma_{12} \\
+		1 = \kappa \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 1} \right|^{2}} \right) \Gamma_{21} + \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 2} \right|^{2}} \right) \Gamma_{22}
+	\end{cases}
+\end{equation}
+Avaldame esimesest võrrandist $ \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 1} \right|^{2}} \right) $
+\begin{equation}\label{key}
+	\ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 1} \right|^{2}} \right) = \left( 1 - \kappa^{-1} \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{2} \right|^{2}} \right) \Gamma_{12} \right) \Gamma_{11}^{-1}
+\end{equation}
+Asendame teise võrrandisse
+\begin{equation}\label{key}
+	\begin{split}
+		1 = \left( 1 - \kappa^{-1} \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{2} \right|^{2}} \right) \Gamma_{12} \right) \frac{ \kappa \Gamma_{21}}{ \Gamma_{11}} + \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{2} \right|^{2}} \right) \Gamma_{22} = \\
+		= \frac{ \kappa \Gamma_{21}}{ \Gamma_{11}} - \frac{ \Gamma_{12} \Gamma_{21}}{ \Gamma_{11}} \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{2} \right|^{2}} \right) + \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{2} \right|^{2}} \right) \Gamma_{22} = \\
+		= \frac{ \kappa \Gamma_{21}}{ \Gamma_{11}} + \left[ \Gamma_{22} - \frac{ \Gamma_{12} \Gamma_{21}}{ \Gamma_{11}} \right] \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{2} \right|^{2}} \right)
+	\end{split}
+\end{equation}
+\begin{equation}\label{key}
+	 \Rightarrow \frac{ \Gamma_{11} \Gamma_{22} - \Gamma_{12} \Gamma_{21}}{ \Gamma_{11}} \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{2} \right|^{2}} \right) = 1 - \frac{ \kappa \Gamma_{21}}{ \Gamma_{11}} = \frac{ \Gamma_{11} - \kappa \Gamma_{21}}{ \Gamma_{11}}
+\end{equation}
+\begin{equation}\label{key}
+	\Rightarrow \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{2} \right|^{2}} \right) = \frac{ \Gamma_{11} - \kappa \Gamma_{21}}{ \Gamma_{11}} \frac{ \Gamma_{11}}{ \Gamma_{11} \Gamma_{22} - \Gamma_{12} \Gamma_{21}} = \frac{ \Gamma_{11} - \kappa \Gamma_{21}}{ \Gamma_{11} \Gamma_{22} - \Gamma_{12} \Gamma_{21}}
+\end{equation}
+\begin{equation}\label{key}
+	\Rightarrow \frac{2 \hbar \omega_{D}}{ \left| \Delta_{2} \right|^{2}} = \exp \frac{ \Gamma_{11} - \kappa \Gamma_{21}}{ \Gamma_{11} \Gamma_{22} - \Gamma_{12} \Gamma_{21}} \Rightarrow \left| \Delta_{2} \right|^{2} = 2 \hbar \omega_{D} \exp \frac{ \Gamma_{11} \Gamma_{22} - \Gamma_{12} \Gamma_{21}}{ \Gamma_{11} - \kappa \Gamma_{21}}
+\end{equation}
+Avaldame teisest võrrandist $ \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 2} \right|^{2}} \right) $
+\begin{equation}\label{key}
+	\ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 2} \right|^{2}} \right) = \left( 1 - \kappa \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 1} \right|^{2}} \right) \Gamma_{21} \right) \Gamma_{22}^{-1}
+\end{equation}
+Asendame esimesse võrrandisse
+\begin{equation}\label{key}
+	\begin{split}
+		1 = \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 1} \right|^{2}} \right) \Gamma_{11} + \left( 1 - \kappa \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 1} \right|^{2}} \right) \Gamma_{21} \right) \frac{ \kappa^{-1} \Gamma_{12}}{ \Gamma_{22}} = \\
+		= \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 1} \right|^{2}} \right) \Gamma_{11} + \frac{ \kappa^{-1} \Gamma_{12}}{ \Gamma_{22}} - \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 1} \right|^{2}} \right) \frac{ \Gamma_{12} \Gamma_{21}}{ \Gamma_{22}} = \\
+		= \frac{ \kappa^{-1} \Gamma_{12}}{ \Gamma_{22}} + \left[ \Gamma_{11} - \frac{ \Gamma_{12} \Gamma_{21}}{ \Gamma_{22}} \right] \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 1} \right|^{2}} \right)
+	\end{split}
+\end{equation}
+\begin{equation}\label{key}
+	\Rightarrow \frac{ \Gamma_{11} \Gamma_{22} - \Gamma_{12} \Gamma_{21}}{ \Gamma_{22}} \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 1} \right|^{2}} \right) = 1 - \frac{ \kappa^{-1} \Gamma_{12}}{ \Gamma_{22}} = \frac{ \Gamma_{22} - \kappa^{-1} \Gamma_{12}}{ \Gamma_{22}}
+\end{equation}
+\begin{equation}\label{key}
+	\Rightarrow \ln \left( \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 1} \right|^{2}} \right) = \frac{ \Gamma_{22} - \kappa^{-1} \Gamma_{12}}{ \Gamma_{22}} \frac{ \Gamma_{22}}{ \Gamma_{11} \Gamma_{22} - \Gamma_{12} \Gamma_{21}} = \frac{ \Gamma_{22} - \kappa^{-1} \Gamma_{12}}{ \Gamma_{11} \Gamma_{22} - \Gamma_{12} \Gamma_{21}}
+\end{equation}
+\begin{equation}\label{key}
+	\Rightarrow \frac{2 \hbar \omega_{D}}{ \left| \Delta_{ 1} \right|^{2}} = \exp \frac{ \Gamma_{22} - \kappa^{-1} \Gamma_{12}}{ \Gamma_{11} \Gamma_{22} - \Gamma_{12} \Gamma_{21}} \Rightarrow \left| \Delta_{ 1} \right|^{2} = 2 \hbar \omega_{D} \exp \frac{ \Gamma_{11} \Gamma_{22} - \Gamma_{12} \Gamma_{21}}{ \Gamma_{22} - \kappa^{-1} \Gamma_{12}}
+\end{equation}
+Kokku saame
+\begin{equation}\label{key}
+	\begin{cases}
+		\left| \Delta_{ 1} \right|^{2} = 2 \hbar \omega_{D} \exp \frac{ \Gamma_{11} \Gamma_{22} - \Gamma_{12} \Gamma_{21}}{ \Gamma_{22} - \kappa^{-1} \Gamma_{12}} \\
+		\left| \Delta_{2} \right|^{2} = 2 \hbar \omega_{D} \exp \frac{ \Gamma_{11} \Gamma_{22} - \Gamma_{12} \Gamma_{21}}{ \Gamma_{11} - \kappa \Gamma_{21}}
+	\end{cases}
+\end{equation}
+\end{document}

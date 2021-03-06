@@ -1,0 +1,119 @@
+\documentclass[class=article, crop=false]{standalone}
+\usepackage{standalone}
+\usepackage{mathptmx}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage[estonian .notilde]{babel}
+\usepackage{amssymb}
+\usepackage[makeroom]{cancel}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{setspace}
+\onehalfspacing
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[hidelinks]{hyperref}
+\sloppy
+\relpenalty=10000
+\binoppenalty=10000
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={160mm,235mm},
+	left=25mm,
+	top=20mm,
+}
+\usepackage{rotating}
+\usepackage{systeme}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\newcommand{\mathcolorbox}[2]{\colorbox{#1}{$\displaystyle #2$}}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\begin{document}
+\section{Keskmise välja lähendus}
+Kasutame nüüd keskmise välja lähendust, mille käigus defineerime ka ülijuhtivuspilud, mis kirjeldavad ülijuhtivat faasi ja faasisiiret. Selleks teeme järgmise asenduse
+\begin{equation}
+a^{ \dagger}a^{ \dagger} a a \rightarrow \left\langle  a^{ \dagger} a^{ \dagger} \right\rangle a a + a^{ \dagger} a^{ \dagger} \left\langle a a \right\rangle - \left\langle a^{ \dagger} a^{ \dagger} \right\rangle \left\langle a a \right\rangle
+\end{equation}
+\begin{equation} \label{key}
+	\begin{split}
+		\hat{H} = & \sum_{ \alpha} \sum_{ \mathbf{k}} \sum_{s} \tilde{ \varepsilon}_{ \alpha} ( \mathbf{k}) a^{ \dagger}_{ \alpha \mathbf{k} s} a_{ \alpha \mathbf{k} s} + \\
+		+ & \sum_{ \mathbf{k}, \mathbf{k}'} V_{ 1 1} ( \mathbf{k}, \mathbf{k}') a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow} a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow} + \\
+		+ & \sum_{ \mathbf{k}, \mathbf{k}'} V_{ 2 2} ( \mathbf{k}, \mathbf{k}') a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow} a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} + \\
+		+ & \sum_{ \mathbf{k}, \mathbf{k}'} U_{ 1 1} ( \mathbf{k}, \mathbf{k}') a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow} a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow} + \\
+		+ & \sum_{ \mathbf{k}, \mathbf{k}'} U_{ 2 2} ( \mathbf{k}, \mathbf{k}') a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow} a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} + \\
+		+ & \sum_{ \mathbf{k}, \mathbf{k}'} V_{ 1 2} ( \mathbf{k}, \mathbf{k}') a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow} a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} + \\
+		+ & \sum_{ \mathbf{k}, \mathbf{k}'} U_{ 1 2} ( \mathbf{k}, \mathbf{k}') a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow} a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} + \\
+		+ & \sum_{ \mathbf{k}, \mathbf{k}'} V_{ 2 1} ( \mathbf{k}, \mathbf{k}') a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow} a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow} + \\
+		+ & \sum_{ \mathbf{k}, \mathbf{k}'} U_{ 2 1} ( \mathbf{k}, \mathbf{k}') a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow} a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow}
+	\end{split}
+\end{equation}
+\begin{equation} \label{key}
+	\begin{split}
+		\hat{H}_{mf} = & \sum_{ \alpha} \sum_{ \mathbf{k}} \sum_{s} \tilde{ \varepsilon}_{ \alpha} ( \mathbf{k}) a^{ \dagger}_{ \alpha \mathbf{k} s} a_{ \alpha \mathbf{k} s} + \\
+		+ & \sum_{ \mathbf{k}, \mathbf{k}'} [ V_{ 1 1} ( \mathbf{k}, \mathbf{k}') \left\langle a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow} \right\rangle \mathcolorbox{green}{a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow}} + V_{ 1 1} ( \mathbf{k}, \mathbf{k}') \mathcolorbox{red}{a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow}} \left\langle a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow} \right\rangle - \\
+		- & V_{ 1 1} ( \mathbf{k}, \mathbf{k}') \mathcolorbox{cyan}{\left\langle a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow} \right\rangle} \left\langle a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow} \right\rangle + \\
+		+ & U_{ 1 1} ( \mathbf{k}, \mathbf{k}') \left\langle a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow} \right\rangle \mathcolorbox{green}{a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow}} + U_{ 1 1} ( \mathbf{k}, \mathbf{k}') \mathcolorbox{red}{a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow}} \left\langle a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow} \right\rangle - \\
+		- & U_{ 1 1} ( \mathbf{k}, \mathbf{k}') \mathcolorbox{cyan}{\left\langle a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow} \right\rangle} \left\langle a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow} \right\rangle + \\
+		+ & V_{ 2 2} ( \mathbf{k}, \mathbf{k}') \left\langle a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow} \right\rangle \mathcolorbox{yellow}{a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow}} + V_{ 2 2} ( \mathbf{k}, \mathbf{k}') \mathcolorbox{teal}{a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow}} \left\langle a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} \right\rangle - \\
+		- & V_{ 2 2} ( \mathbf{k}, \mathbf{k}') \mathcolorbox{orange}{\left\langle a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow} \right\rangle} \left\langle a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} \right\rangle + \\
+		+ & U_{ 2 2} ( \mathbf{k}, \mathbf{k}') \left\langle a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow} \right\rangle \mathcolorbox{yellow}{a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow}} + U_{ 2 2} ( \mathbf{k}, \mathbf{k}') \mathcolorbox{teal}{a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow}} \left\langle a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} \right\rangle - \\
+		- & U_{ 2 2} ( \mathbf{k}, \mathbf{k}') \mathcolorbox{orange}{\left\langle a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow} \right\rangle} \left\langle a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} \right\rangle + \\
+		+ & V_{ 1 2} ( \mathbf{k}, \mathbf{k}') \left\langle a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow} \right\rangle \mathcolorbox{yellow}{a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow}} + V_{ 1 2} ( \mathbf{k}, \mathbf{k}') \mathcolorbox{red}{a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow}} \left\langle a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} \right\rangle - \\
+		- & V_{ 1 2} ( \mathbf{k}, \mathbf{k}') \mathcolorbox{cyan}{\left\langle a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow} \right\rangle} \left\langle a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} \right\rangle + \\
+		+ & U_{ 1 2} ( \mathbf{k}, \mathbf{k}') \left\langle a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow} \right\rangle \mathcolorbox{yellow}{a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow}} + U_{ 1 2} ( \mathbf{k}, \mathbf{k}') \mathcolorbox{red}{a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow}} \left\langle a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} \right\rangle - \\
+		- & U_{ 1 2} ( \mathbf{k}, \mathbf{k}') \mathcolorbox{cyan}{\left\langle a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow} \right\rangle} \left\langle a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} \right\rangle + \\
+		+ & V_{ 2 1} ( \mathbf{k}, \mathbf{k}') \left\langle a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow} \right\rangle \mathcolorbox{green}{a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow}} + V_{ 2 1} ( \mathbf{k}, \mathbf{k}') \mathcolorbox{teal}{a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow}} \left\langle a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow} \right\rangle - \\
+		- & V_{ 2 1} ( \mathbf{k}, \mathbf{k}') \mathcolorbox{orange}{\left\langle a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow} \right\rangle} \left\langle a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow} \right\rangle + \\ 
+		+ & U_{ 2 1} ( \mathbf{k}, \mathbf{k}') \left\langle a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow} \right\rangle \mathcolorbox{green}{a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow}} + U_{ 2 1} ( \mathbf{k}, \mathbf{k}') \mathcolorbox{teal}{a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow}} \left\langle a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow} \right\rangle - \\
+		- & U_{ 2 1} ( \mathbf{k}, \mathbf{k}') \mathcolorbox{orange}{\left\langle a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow} \right\rangle} \left\langle a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow} \right\rangle ]
+	\end{split}
+\end{equation}
+Grupeerime liikmed
+\begin{equation} \label{key}
+	\begin{split}
+		\hat{H}_{mf} = & \sum_{ \alpha} \sum_{ \mathbf{k}} \sum_{s} \tilde{ \varepsilon}_{ \alpha} ( \mathbf{k}) a^{ \dagger}_{ \alpha \mathbf{k} s} a_{ \alpha \mathbf{k} s} + \\
+		+ & \sum_{ \mathbf{k}, \mathbf{k}'} \lbrace [ V_{ 1 1} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow} \right\rangle + U_{ 1 1} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow} \right\rangle + \\
+		+ & V_{ 1 2} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} \right\rangle + U_{ 1 2} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} \right\rangle ] \mathcolorbox{red}{a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow}} + \\
+		+ & [ V_{ 2 2} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} \right\rangle  + U_{ 2 2} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} \right\rangle + \\
+		+ & V_{ 2 1} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow} \right\rangle + U_{ 2 1} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow} \right\rangle ] \mathcolorbox{teal}{a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow}} + \\
+		+ &	[ V_{ 1 1} ( \mathbf{k}, \mathbf{k}') \left\langle a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow} \right\rangle + U_{ 1 1} ( \mathbf{k}, \mathbf{k}') \left\langle a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow} \right\rangle + \\
+		+ & V_{ 2 1} ( \mathbf{k}, \mathbf{k}') \left\langle a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow} \right\rangle + U_{ 2 1} ( \mathbf{k}, \mathbf{k}') \left\langle a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow} \right\rangle ] \mathcolorbox{green}{a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow}} + \\
+		+ & [ V_{ 2 2} ( \mathbf{k}, \mathbf{k}') \left\langle a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow} \right\rangle + U_{ 2 2} ( \mathbf{k}, \mathbf{k}') \left\langle a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow} \right\rangle + \\
+		+ & V_{ 1 2} ( \mathbf{k}, \mathbf{k}') \left\langle a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow} \right\rangle + U_{ 1 2} ( \mathbf{k}, \mathbf{k}') \left\langle a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow} \right\rangle ] \mathcolorbox{yellow}{a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow}} - \\
+		- & [ V_{ 1 1} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow} \right\rangle + U_{ 1 1} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow} \right\rangle + \\
+		+ & V_{ 1 2} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} \right\rangle + U_{ 1 2} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} \right\rangle ] \mathcolorbox{cyan}{\left\langle a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow} \right\rangle} - \\
+		- & [ V_{ 2 2} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} \right\rangle + U_{ 2 2} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} \right\rangle + \\
+		+ & V_{ 2 1} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow} \right\rangle + U_{ 2 1} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow} \right\rangle ] \mathcolorbox{orange}{ \left\langle a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow} \right\rangle \rbrace}
+	\end{split}
+\end{equation}
+Defineerime ülijuhtivuspilud
+\begin{equation}\label{key}
+	\begin{split}
+		\Delta_{ 1 \mathbf{k}} = & \sum_{ \mathbf{k}'} [ V_{ 1 1} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow} \right\rangle + U_{ 1 1} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow} \right\rangle + \\
+		+ & V_{ 1 2} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} \right\rangle + U_{ 1 2} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} \right\rangle ]\\
+		\Delta_{ 2 \mathbf{k}} = & \sum_{ \mathbf{k}'} [ V_{ 2 2} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} \right\rangle  + U_{ 2 2} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} \right\rangle + \\
+		+ & V_{ 2 1} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow} \right\rangle + U_{ 2 1} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow} \right\rangle ] \\
+		\Delta_{ 1 \mathbf{k}'}^{ \ast} = & \sum_{ \mathbf{k}} [ V_{ 1 1} ( \mathbf{k}, \mathbf{k}') \left\langle a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow} \right\rangle + U_{ 1 1} ( \mathbf{k}, \mathbf{k}') \left\langle a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow} \right\rangle + \\
+		+ & V_{ 2 1} ( \mathbf{k}, \mathbf{k}') \left\langle a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow} \right\rangle + U_{ 2 1} ( \mathbf{k}, \mathbf{k}') \left\langle a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow} \right\rangle ] \\
+		\Delta_{ 2 \mathbf{k}'}^{ \ast} = & \sum_{ \mathbf{k}} [ V_{ 2 2} ( \mathbf{k}, \mathbf{k}') \left\langle a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow} \right\rangle + U_{ 2 2} ( \mathbf{k}, \mathbf{k}') \left\langle a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow} \right\rangle + \\
+		+ & V_{ 1 2} ( \mathbf{k}, \mathbf{k}') \left\langle a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow} \right\rangle + U_{ 1 2} ( \mathbf{k}, \mathbf{k}') \left\langle a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow} \right\rangle ]
+	\end{split}
+\end{equation}
+Seega 
+\begin{equation}\label{key}
+	\begin{split}
+		\hat{H}_{mf} = & \sum_{ \alpha} \sum_{ \mathbf{k}} \sum_{s} \tilde{ \varepsilon}_{ \alpha} ( \mathbf{k}) a^{ \dagger}_{ \alpha \mathbf{k} s} a_{ \alpha \mathbf{k} s} + \\
+		+ & \sum_{ \mathbf{k}, \mathbf{k}'} \lbrace \Delta_{ 1 \mathbf{k}} a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow} + \Delta_{ 2 \mathbf{k}} a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow} + \\
+		+ &	\Delta_{ 1 \mathbf{k}}^{ \ast} a_{ 1 -\mathbf{k}' \downarrow} a_{ 1 \mathbf{k}' \uparrow} + \Delta_{ 2 \mathbf{k}}^{ \ast} a_{ 2 -\mathbf{k}' \downarrow} a_{ 2 \mathbf{k}' \uparrow} - \\
+		- & \Delta_{ 1 \mathbf{k}} \left\langle a^{ \dagger}_{ 1 \mathbf{k} \uparrow} a^{ \dagger}_{ 1 -\mathbf{k} \downarrow} \right\rangle - \Delta_{ 2 \mathbf{k}} \left\langle a^{ \dagger}_{ 2 \mathbf{k} \uparrow} a^{ \dagger}_{ 2 -\mathbf{k} \downarrow} \right\rangle \rbrace = \\
+		= & \sum_{ \alpha} \sum_{ \mathbf{k}} \sum_{s} \tilde{ \varepsilon}_{ \alpha} ( \mathbf{k}) a^{ \dagger}_{ \alpha \mathbf{k} s} a_{ \alpha \mathbf{k} s} + \\
+		+ & \sum_{ \alpha} \lbrace \sum_{ \mathbf{k}} \Delta_{ \alpha \mathbf{k}} a^{ \dagger}_{ \alpha \mathbf{k} \uparrow} a^{ \dagger}_{ \alpha -\mathbf{k} \downarrow} + \sum_{ \mathbf{k}'} \Delta_{ \alpha \mathbf{k}'}^{ \ast} a_{ \alpha -\mathbf{k}' \downarrow} a_{ \alpha \mathbf{k}' \uparrow} - \sum_{ \mathbf{k}} \Delta_{ \alpha \mathbf{k}} \left\langle a^{ \dagger}_{ \alpha \mathbf{k} \uparrow} a^{ \dagger}_{ \alpha -\mathbf{k} \downarrow} \right\rangle \rbrace
+	\end{split}
+\end{equation}
+\end{document}

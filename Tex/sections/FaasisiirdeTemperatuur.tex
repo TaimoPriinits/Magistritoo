@@ -1,0 +1,91 @@
+\documentclass[class=article, crop=false]{standalone}
+\usepackage{standalone}
+\usepackage{mathptmx}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage[estonian .notilde]{babel}
+\usepackage{amssymb}
+\usepackage[makeroom]{cancel}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{setspace}
+\onehalfspacing
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[hidelinks]{hyperref}
+\sloppy
+\relpenalty=10000
+\binoppenalty=10000
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={160mm,235mm},
+	left=25mm,
+	top=20mm,
+}
+\usepackage{rotating}
+\usepackage{systeme}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\newcommand{\mathcolorbox}[2]{\colorbox{#1}{$\displaystyle #2$}}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\begin{document}
+\section{Faasisiirde temperatuur}
+Faasisiirde temperatuuri lähedal saame ligikaudu integreerida integraali (\ref{etaDefinitsioonid}) arvestades, et $ \hbar \omega_{D} \gg 2 k_{B} T_{c} $ ja $ \Delta_{ \alpha} (T = T_{c}) = 0 $
+\begin{equation}\label{key}
+	\eta (T_{c}, 0) = \int_{0}^{ \hbar \omega_{D}} \tilde{ \varepsilon}_{ \alpha}^{-1} \tanh \left( \frac{ \tilde{ \varepsilon}_{ \alpha}}{2 k_{B} T_{c}} \right) d \tilde{ \varepsilon}_{ \alpha}
+\end{equation}
+Teeme muutujavahetuse
+\begin{equation}\label{key}
+	x = \frac{ \tilde{ \varepsilon}_{ \alpha}}{2 k_{B} T_{c}}
+\end{equation}
+\begin{equation}\label{key}
+	\begin{split}
+		\eta (T_{c}, 0) = & \int_{0}^{ \frac{ \hbar \omega_{D}}{2 k_{B} T_{c}}} \frac{1}{x} \tanh (x) dx = \int_{0}^{ \frac{ \hbar \omega_{D}}{2 k_{B} T_{c}}} \tanh (x) d [\ln (x)] = \\
+		= & \left. \ln (x) \tanh (x) \right|_{0}^{ \frac{ \hbar \omega_{D}}{2 k_{B} T_{c}}} - \int_{0}^{ \frac{ \hbar \omega_{D}}{2 k_{B} T_{c}}} \ln (x) d [\tanh (x)] = \\
+		= & \ln \left( \frac{ \hbar \omega_{D}}{2 k_{B} T_{c}} \right) \underbrace{ \tanh \left( \frac{ \hbar \omega_{D}}{2 k_{B} T_{c}} \right)}_{ \approx 1} - \int_{0}^{ \frac{ \hbar \omega_{D}}{2 k_{B} T_{c}}} \frac{ \ln (x)}{ \cosh^{2} (x)} dx
+	\end{split}
+\end{equation}
+Kui $ \hbar \omega_{D} \gg 2 k_{B} T_{c} \Rightarrow \frac{ \hbar \omega_{D}}{2 k_{B} T_{c}} \rightarrow \infty $
+\begin{equation}\label{key}
+	- \int_{0}^{ \infty} \frac{ \ln (x)}{ \cosh^{2} (x)} dx = \gamma - \ln \left( \frac{ \pi}{4} \right) = \ln \left( e^{ \gamma} \right) - \ln \left( \frac{ \pi}{4} \right) = \ln \left( \frac{4 e^{ \gamma}}{ \pi} \right) 
+\end{equation}
+\begin{equation}\label{etaIntegraalTc}
+	\eta (T_{c}, 0) = \ln \left( \frac{ \hbar \omega_{D}}{2 k_{B} T_{c}} \right) + \ln \left( \frac{4 e^{ \gamma}}{ \pi} \right) = \ln \left( \frac{ 4 \hbar \omega_{D} e^{ \gamma}}{k_{B} T_{c}} \right) \equiv \eta,\ \gamma = 0.577 \dots
+\end{equation}
+Teisendame võrrandisüsteemi (\ref{PiluVorrandiSusteemGamma})
+\begin{equation}\label{PiluVorrandiSusteemTc}
+	\begin{cases}
+		\Delta_{1} \left( \eta \Gamma_{11} - 1 \right) + \Delta_{2} \eta \Gamma_{12} = 0 \\
+		\Delta_{1} \eta \Gamma_{21} + \Delta_{2} \left( \eta \Gamma_{22} - 1 \right) = 0
+	\end{cases}
+\end{equation}
+Võrrandisüsteemil (\ref{PiluVorrandiSusteemGamma}) leiduvad mittetriviaalsed lahendid, kui
+\begin{equation}
+	\begin{vmatrix}
+		\eta \Gamma_{11} - 1 & \eta \Gamma_{12} \\
+		\eta \Gamma_{21} & \eta \Gamma_{22} - 1
+	\end{vmatrix}
+	= 0
+\end{equation}
+\begin{equation}
+	\begin{split}
+		\left( \eta \Gamma_{11} - 1 \right) \left( \eta \Gamma_{22} - 1 \right) - \eta^{2} \Gamma_{21} \Gamma_{12} = & 0 \\
+		\eta^{2} \Gamma_{11} \Gamma_{22} - \eta \Gamma_{11} - \eta \Gamma_{22} + 1 - \eta^{2} \Gamma_{12} \Gamma_{21} = & 0 \\
+		\eta^{2} \left( \Gamma_{11} \Gamma_{22} - \Gamma_{12} \Gamma_{21} \right) - \eta \left( \Gamma_{11} + \Gamma_{22} \right) + 1 = & 0
+	\end{split}
+\end{equation}
+Lahendame $ \eta $ suhtes ruutvõrrandi
+\begin{equation}
+	\eta^{ \pm} = \frac{ \Gamma_{11} + \Gamma_{22} \pm \sqrt{ \left( \Gamma_{11} - \Gamma_{22} \right)^{2} + 4 \Gamma_{12} \Gamma_{21}}}{2 \left( \Gamma_{11} \Gamma_{22} - \Gamma_{12} \Gamma_{21} \right)} = \frac{2}{ \Gamma_{11} + \Gamma_{22} \mp \sqrt{ \left( \Gamma_{11} - \Gamma_{22} \right)^{2} + 4 \Gamma_{12} \Gamma_{21}}}
+\end{equation}
+Avaldame võrrandist (\ref{etaIntegraalTc}) $ T_{c} $
+\begin{equation}
+	T_{c}^{ \pm} = \frac{2 \hbar \omega_{D} e^{ \gamma}}{k_{B} \pi} \exp \left( - \eta^{ \pm} \right)
+\end{equation}
+\end{document}

@@ -1,0 +1,214 @@
+\documentclass[class=article, crop=false]{standalone}
+\usepackage{standalone}
+\usepackage{mathptmx}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage[estonian .notilde]{babel}
+\usepackage{amssymb}
+\usepackage[makeroom]{cancel}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{setspace}
+\onehalfspacing
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[hidelinks]{hyperref}
+\sloppy
+\relpenalty=10000
+\binoppenalty=10000
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={160mm,235mm},
+	left=25mm,
+	top=20mm,
+}
+\usepackage{rotating}
+\usepackage{systeme}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\newcommand{\mathcolorbox}[2]{\colorbox{#1}{$\displaystyle #2$}}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\begin{document}
+\section{Võrrandisüsteemi ümbertähistamine}
+Tähistame
+\begin{equation}\label{key}
+	\begin{split}
+		\Xi_{11} = & V_{ 1 1} \rho_{ 1} + U_{ 1 1} \rho_{ 1} + U_{ 1 1} V_{ 1 1} \rho_{ 1} \tilde{ \eta}_{ 1} \rho_{ 1} + U_{ 1 2} V_{ 2 1} \rho_{ 2} \tilde{ \eta}_{ 2} \rho_{ 1} \\
+		\Xi_{12} = & V_{ 1 2} \rho_{ 2} + U_{ 1 2} \rho_{ 2} + U_{ 1 1} V_{ 1 2} \rho_{ 1} \tilde{ \eta}_{ 1} \rho_{ 2} +  U_{ 1 2} V_{ 2 2} \rho_{ 2} \tilde{ \eta}_{ 2} \rho_{ 2} \\
+		\Xi_{21} = & V_{ 2 1} \rho_{ 1} + U_{ 2 1} \rho_{ 1} + U_{ 2 2} V_{ 2 1} \rho_{ 2} \tilde{ \eta}_{ 2} \rho_{ 1} + U_{ 2 1} V_{ 1 1} \rho_{ 1} \tilde{ \eta}_{ 1} \rho_{ 1} \\
+		\Xi_{22} = & V_{ 2 2} \rho_{ 2} + U_{ 2 2} \rho_{ 2} + U_{ 2 2} V_{ 2 2} \rho_{ 2} \tilde{ \eta}_{ 2} \rho_{ 2} + U_{ 2 1} V_{ 1 2} \rho_{ 1} \tilde{ \eta}_{ 1} \rho_{ 2}
+	\end{split}
+\end{equation}
+\begin{equation}\label{key}
+	\begin{cases}
+		\Delta_{1} = ( - \Xi_{11} \eta_{ 1} - U_{ 1 1} \rho_{ 1} \tilde{ \eta}_{ 1} ) \Delta_{1} + ( - \Xi_{12} \eta_{ 2} - U_{ 1 2} \rho_{ 2} \tilde{ \eta}_{ 2} )\Delta_{2} \\
+		\Delta_{2} = ( - \Xi_{21} \eta_{ 1} - U_{ 2 1} \rho_{ 1} \tilde{ \eta}_{ 1} )  \Delta_{1} + ( - \Xi_{22} \eta_{ 2} - U_{ 2 2} \rho_{ 2} \tilde{ \eta}_{ 2} ) \Delta_{2}
+	\end{cases}
+\end{equation}
+\begin{equation}\label{key}
+	\begin{cases}
+		\Delta_{1} = - \Xi_{11} \eta_{ 1} \Delta_{1} - U_{ 1 1} \rho_{ 1} \tilde{ \eta}_{ 1} \Delta_{1} - \Xi_{12} \eta_{ 2} \Delta_{2} - U_{ 1 2} \rho_{ 2} \tilde{ \eta}_{ 2} \Delta_{2} \\
+		\Delta_{2} = - \Xi_{21} \eta_{ 1} \Delta_{1} - U_{ 2 1} \rho_{ 1} \tilde{ \eta}_{ 1} \Delta_{1} - \Xi_{22} \eta_{ 2} \Delta_{2} - U_{ 2 2} \rho_{ 2} \tilde{ \eta}_{ 2} \Delta_{2}
+	\end{cases}
+\end{equation}
+Arvutame $ \tilde{ \eta}_{ \alpha} $. Arvestame, et $ k_{B} T_{c}, | \Delta_{ \alpha}| \ll \hbar \omega_{D} $
+\begin{equation}\label{key}
+	\begin{split}
+		\tilde{ \eta}_{ \alpha} \left( T, \tilde{ \Delta}_{ \alpha} \right) = & \int_{ \hbar \omega_{D}}^{ \hbar \omega_{C}} E^{-1} ( \tilde{ \Delta}_{ \alpha}) \tanh \left( \frac{E ( \tilde{ \Delta}_{ \alpha})}{2 k_{B} T} \right) d \tilde{ \varepsilon}_{ \alpha} \equiv \tilde{ \eta}_{ \alpha} \\
+		\tilde{ \eta}_{ \alpha} \left( T, 0 \right) = & \int_{ \hbar \omega_{D}}^{ \hbar \omega_{C}} \tilde{ \varepsilon}^{-1} \tanh \left( \frac{ \tilde{ \varepsilon}}{2 k_{B} T} \right) d \tilde{ \varepsilon}_{ \alpha} \approx \int_{ \hbar \omega_{D}}^{ \hbar \omega_{C}} \tilde{ \varepsilon}^{-1} d \tilde{ \varepsilon}_{ \alpha} = \ln | \tilde{ \varepsilon}| \Bigr|_{ \hbar \omega_{C}}^{ \hbar \omega_{D}} = \ln \frac{ \hbar \omega_{C}}{ \hbar \omega_{D}}
+	\end{split}
+\end{equation}
+\begin{equation}\label{key}
+	\tilde{ \eta}_{ \alpha} \approx \ln \left( \frac{ \hbar \omega_{C}}{\hbar \omega_{D}}\right) \equiv \tilde{ \eta}
+\end{equation}
+Tähistame
+\begin{equation}\label{InteraktsiooniKonstantideTähistus}
+	 \begin{split}
+	 	P = & \sqrt{ \frac{ \rho_{ 1}}{ \rho_{2}}} \\
+	 	\nu_{ \alpha \alpha} = & V_{ \alpha \alpha} \rho_{ \alpha} \\
+	 	\mu_{ \alpha \alpha} = & U_{ \alpha \alpha} \rho_{ \alpha} \\
+	 	\nu_{ \alpha \alpha'} = & V_{ \alpha \alpha'} \sqrt{ \rho_{ \alpha} \rho_{ \alpha'}} \\
+	 	\mu_{ \alpha \alpha'} = & U_{ \alpha \alpha'} \sqrt{ \rho_{ \alpha} \rho_{ \alpha'}}
+	 \end{split}
+\end{equation}
+\begin{equation}\label{key}
+	\begin{split}
+		\Xi_{11} = & \nu_{11} + \mu_{11} + \mu_{11} \nu_{11} \tilde{ \eta} + \mu_{12} \nu_{21} \tilde{ \eta} \\
+		\Xi_{12} = & \nu_{12} P^{-1} + \mu_{12} P^{-1} + \mu_{11} \nu_{12} P^{-1} \tilde{ \eta} + \mu_{12} P^{-1} \nu_{22} \tilde{ \eta} \\
+		\Xi_{21} = & \nu_{21} P + \mu_{21} P + \mu_{22} \nu_{21} P \tilde{ \eta} + \mu_{21} P \nu_{11} \tilde{ \eta} \\
+		\Xi_{22} = & + \nu_{22} + \mu_{22} + \mu_{22} \nu_{22} \tilde{ \eta} + \mu_{21} \nu_{12} \tilde{ \eta}
+	\end{split}
+\end{equation}
+\begin{equation}\label{XiTähistus}
+	\begin{split}
+		\Xi_{11} = & \nu_{11} + \mu_{11} + \mu_{11} \nu_{11} \tilde{ \eta} + \mu_{12} \nu_{21} \tilde{ \eta} \\
+		\Xi_{12} = & (\nu_{12} + \mu_{12} + \mu_{11} \nu_{12} \tilde{ \eta} + \mu_{12} \nu_{22} \tilde{ \eta}) P^{-1} \\
+		\Xi_{21} = & (\nu_{21} + \mu_{21} + \mu_{22} \nu_{21} \tilde{ \eta} + \mu_{21} \nu_{11} \tilde{ \eta}) P \\
+		\Xi_{22} = & \nu_{22} + \mu_{22} + \mu_{22} \nu_{22} \tilde{ \eta} + \mu_{21} \nu_{12} \tilde{ \eta}
+	\end{split}
+\end{equation}
+Toome P $ \Xi_{12} $ ja $ \Xi_{21} $ seest välja
+\begin{equation}\label{key}
+	\begin{cases}
+		\Delta_{1} = - \Xi_{11} \eta_{ 1} \Delta_{1} - \mu_{11} \tilde{ \eta} \Delta_{1} - \Xi_{12} P^{-1} \eta_{ 2} \Delta_{2} - \mu_{12} P^{ -1} \tilde{ \eta} \Delta_{2} \\
+		\Delta_{2} = - \Xi_{21} P \eta_{ 1} \Delta_{1} - \mu_{21} P \tilde{ \eta} \Delta_{1} - \Xi_{22} \eta_{ 2} \Delta_{2} - \mu_{22} \tilde{ \eta} \Delta_{2}
+	\end{cases}
+\end{equation}
+Tähistame
+\begin{equation}\label{ÜpsilonTähistus}
+	\Upsilon_{ \alpha \alpha} = 1 + \mu_{ \alpha \alpha} \tilde{ \eta}
+\end{equation}
+\begin{equation}\label{key}
+	\begin{cases}
+		\Upsilon_{11} \Delta_{1} = - \Xi_{11} \eta_{ 1} \Delta_{1} - \Xi_{12} P^{-1} \eta_{ 2} \Delta_{2} - \mu_{12} P^{ -1} \tilde{ \eta} \Delta_{2} \\
+		\Upsilon_{22} \Delta_{2} = - \Xi_{21} P \eta_{ 1} \Delta_{1} - \mu_{21} P \tilde{ \eta} \Delta_{1} - \Xi_{22} \eta_{ 2} \Delta_{2}
+	\end{cases}
+\end{equation}
+\begin{equation}\label{key}
+	\begin{cases}
+		\Upsilon_{11} \Delta_{1} + \Xi_{11} \eta_{ 1} \Delta_{1} + \Xi_{12} P^{-1} \eta_{ 2} \Delta_{2} + \mu_{12} P^{ -1} \tilde{ \eta} \Delta_{2} = 0 \\
+		\Upsilon_{22} \Delta_{2} + \Xi_{22} \eta_{ 2} \Delta_{2} + \Xi_{21} P \eta_{ 1} \Delta_{1} + \mu_{21} P \tilde{ \eta} \Delta_{1} = 0
+	\end{cases}
+\end{equation}
+Korrutame esimest võrrandit $ \mu_{21} \tilde{ \eta} P $-ga ja teist $ \Upsilon_{11} $-ga
+\begin{equation}\label{key}
+	\begin{cases}
+		\mu_{21} \tilde{ \eta} P \Upsilon_{11} \Delta_{1} + \mu_{21} \tilde{ \eta} P \Xi_{11} \eta_{ 1} \Delta_{1} + \mu_{21} \tilde{ \eta} P \Xi_{12} P^{-1} \eta_{ 2} \Delta_{2} + \mu_{21} \tilde{ \eta} \mu_{12} \tilde{ \eta} \Delta_{2} = 0 \\
+		\Upsilon_{11} \Upsilon_{22} \Delta_{2} + \Upsilon_{11} \Xi_{22} \eta_{ 2} \Delta_{2} + \Upsilon_{11} \Xi_{21} P \eta_{ 1} \Delta_{1} + \Upsilon_{11} \mu_{21} P \tilde{ \eta} \Delta_{1} = 0
+	\end{cases}
+\end{equation}
+Lahutame esimesest võrrandist teise
+\begin{equation}\label{key}
+	\begin{split}
+		& \mu_{21} \tilde{ \eta} P \Upsilon_{11} \Delta_{1} + \mu_{21} \tilde{ \eta} P \Xi_{11} \eta_{ 1} \Delta_{1} + \mu_{21} P^{-1} \tilde{ \eta} P \Xi_{12} \eta_{ 2} \Delta_{2} + \mu_{21} \tilde{ \eta} \mu_{12} \tilde{ \eta} \Delta_{2} - \\
+		- & ( \Upsilon_{11} \Upsilon_{22} \Delta_{2} + \Upsilon_{11} \Xi_{22} \eta_{ 2} \Delta_{2} + \Upsilon_{11} \Xi_{21} P \eta_{ 1} \Delta_{1} + \Upsilon_{11} \mu_{21} P \tilde{ \eta} \Delta_{1}) = 0
+	\end{split}
+\end{equation}
+Grupeerime liikmed
+\begin{equation}\label{key}
+	\begin{split}
+		\Delta_{1} \eta_{ 1} P ( \mu_{21} \tilde{ \eta} \Xi_{11} - \Upsilon_{11} \Xi_{21}) + \Delta_{2} \eta_{ 2} ( \mu_{21} \tilde{ \eta} \Xi_{12} - \Upsilon_{11} \Xi_{22}) + \Delta_{2} ( \mu_{21} \mu_{12} \tilde{ \eta}^{2} - \Upsilon_{11} \Upsilon_{22}) = 0
+	\end{split}
+\end{equation}
+\begin{equation}\label{key}
+	\begin{cases}
+		\Upsilon_{11} \Delta_{1} + \Xi_{11} \eta_{ 1} \Delta_{1} + \Xi_{12} P^{-1} \eta_{ 2} \Delta_{2} + \mu_{12} P^{ -1} \tilde{ \eta} \Delta_{2} = 0 \\
+		\Upsilon_{22} \Delta_{2} + \Xi_{22} \eta_{ 2} \Delta_{2} + \Xi_{21} P \eta_{ 1} \Delta_{1} + \mu_{21} P \tilde{ \eta} \Delta_{1} = 0
+	\end{cases}
+\end{equation}
+Korrutame esimest võrrandit $ \Upsilon_{22} $-ga ja teist $ \mu_{12} P^{-1} \tilde{ \eta} $-ga
+\begin{equation}\label{key}
+	\begin{cases}
+		\Upsilon_{22} \Upsilon_{11} \Delta_{1} + \Upsilon_{22} \Xi_{11} \eta_{ 1} \Delta_{1} + \Upsilon_{22} \Xi_{12} P^{-1} \eta_{ 2} \Delta_{2} + \Upsilon_{22} \mu_{12} P^{ -1} \tilde{ \eta} \Delta_{2} = 0 \\
+		\mu_{12} P^{-1} \tilde{ \eta} \Upsilon_{22} \Delta_{2} + \mu_{12} P^{-1} \tilde{ \eta} \Xi_{22} \eta_{ 2} \Delta_{2} + \mu_{12} P^{-1} \tilde{ \eta} \Xi_{21} P \eta_{ 1} \Delta_{1} + \mu_{12} P^{-1} \tilde{ \eta} \mu_{21} P \tilde{ \eta} \Delta_{1} = 0
+	\end{cases}
+\end{equation}
+Lahutame teisest võrrandist esimese
+\begin{equation}\label{key}
+	\begin{split}
+		& \mu_{12} P^{-1} \tilde{ \eta} \Upsilon_{22} \Delta_{2} + \mu_{12} P^{-1} \tilde{ \eta} \Xi_{22} \eta_{ 2} \Delta_{2} + \mu_{12} P^{-1} \tilde{ \eta} \Xi_{21} P \eta_{ 1} \Delta_{1} + \mu_{12} \tilde{ \eta} \mu_{21} \tilde{ \eta} \Delta_{1} - \\
+		- & (\Upsilon_{22} \Upsilon_{11} \Delta_{1} + \Upsilon_{22} \Xi_{11} \eta_{ 1} \Delta_{1} + \Upsilon_{22} \Xi_{12} P^{-1} \eta_{ 2} \Delta_{2} + \Upsilon_{22} \mu_{12} P^{ -1} \tilde{ \eta} \Delta_{2}) = 0
+	\end{split}
+\end{equation}
+Grupeerime liikmed
+\begin{equation}\label{key}
+	\begin{split}
+		\Delta_{1} \eta_{ 1} ( \mu_{12} \tilde{ \eta} \Xi_{21} - \Upsilon_{22} \Xi_{11}) + \Delta_{1} (\mu_{12} \mu_{21} \tilde{ \eta}^{2} - \Upsilon_{22} \Upsilon_{11}) + \Delta_{2} \eta_{ 2} P^{-1} ( \mu_{12} \tilde{ \eta} \Xi_{22} - \Upsilon_{22} \Xi_{12}) = 0
+	\end{split}
+\end{equation}
+Kokku saame 
+\begin{equation}\label{key}
+	\begin{cases}
+		\Delta_{1} \eta_{ 1} P ( \mu_{21} \tilde{ \eta} \Xi_{11} - \Upsilon_{11} \Xi_{21}) + \Delta_{2} \eta_{ 2} ( \mu_{21} \tilde{ \eta} \Xi_{12} - \Upsilon_{11} \Xi_{22}) = \Delta_{2} ( \Upsilon_{11} \Upsilon_{22} - \mu_{21} \mu_{12} \tilde{ \eta}^{2}) \\
+		\Delta_{1} \eta_{ 1} ( \mu_{12} \tilde{ \eta} \Xi_{21} - \Upsilon_{22} \Xi_{11}) + \Delta_{2} \eta_{ 2} P^{-1} ( \mu_{12} \tilde{ \eta} \Xi_{22} - \Upsilon_{22} \Xi_{12}) = \Delta_{1} ( \Upsilon_{22} \Upsilon_{11} - \mu_{12} \mu_{21} \tilde{ \eta}^{2})
+	\end{cases}
+\end{equation}
+Tähistame
+\begin{equation}\label{ThetaJaPhiTähistused}
+	\begin{split}
+		\Theta_{11} = & \mu_{12} \tilde{ \eta} \Xi_{21} - \Upsilon_{22} \Xi_{11} \\
+		\Theta_{12} = & \mu_{12} \tilde{ \eta} \Xi_{22} - \Upsilon_{22} \Xi_{12} \\
+		\Phi = & \Upsilon_{11} \Upsilon_{22} - \mu_{21} \mu_{12} \tilde{ \eta}^{2} \\
+		\Theta_{21} = & \mu_{21} \tilde{ \eta} \Xi_{11} - \Upsilon_{11} \Xi_{21} \\
+		\Theta_{22} = & \mu_{21} \tilde{ \eta} \Xi_{12} - \Upsilon_{11} \Xi_{22}
+	\end{split}
+\end{equation}
+\begin{equation}\label{key}
+	\begin{cases}
+		\Delta_{1} \eta_{ 1} P \Theta_{21} + \Delta_{2} \eta_{ 2} \Theta_{22} = \Delta_{2} \Phi \\
+		\Delta_{1} \eta_{ 1} \Theta_{11} + \Delta_{2} \eta_{ 2} P^{-1} \Theta_{12} = \Delta_{1} \Phi
+	\end{cases}
+\end{equation}
+\begin{equation}\label{key}
+	\begin{cases}
+		\Delta_{1} = \Delta_{1} \eta_{ 1} \dfrac{ \Theta_{11}}{ \Phi} + \Delta_{2} \eta_{ 2} \dfrac{ \Theta_{12}}{P \Phi} \\
+		\Delta_{2} = \Delta_{1} \eta_{ 1} \dfrac{ P \Theta_{21}}{ \Phi} + \Delta_{2} \eta_{ 2} \dfrac{ \Theta_{22}}{ \Phi}
+	\end{cases}
+\end{equation}
+Võtame arvesse, et $ \nu_{12} = \nu_{21} $ ja $  \mu_{12} = \mu_{21} $ ning asendame tähistused (\ref{XiTähistus}),(\ref{ÜpsilonTähistus}) tagasi tähistusse (\ref{ThetaJaPhiTähistused}) ning viime olekute tihedused tähistuse sisse
+\begin{equation}\label{key}
+	\begin{split}
+		\Phi = & 1 + \tilde{ \eta} \mu_{11} - \tilde{ \eta}^{2} \mu_{12}^{2} + \tilde{ \eta} \mu_{22} + \tilde{ \eta}^{2} \mu_{11} \mu_{22} \\
+		\Theta_{11} = & - \mu_{11} + \tilde{ \eta} \mu_{12}^{2} - \tilde{ \eta} \mu_{11} \mu_{22} - \nu_{11} - \tilde{ \eta} \mu_{11} \nu_{11} + \tilde{ \eta}^{2} \mu_{12}^{2} \nu_{11} - \tilde{ \eta} \mu_{22} \nu_{11} - \tilde{ \eta}^{2} \mu_{11} \mu_{22} \nu_{11} \\
+		\Theta_{22} = & - \mu_{22} + \tilde{ \eta} \mu_{12}^{2} - \tilde{ \eta} \mu_{11} \mu_{22} - \nu_{22} - \tilde{ \eta} \mu_{11} \nu_{22} + \tilde{ \eta}^{2} \mu_{12}^{2} \nu_{22} - \tilde{ \eta} \mu_{22} \nu_{22} - \tilde{ \eta}^{2} \mu_{11} \mu_{22} \nu_{22} \\
+		\Theta_{12} = & P^{-1} \left(- \mu_{12} - \nu_{12} - \tilde{ \eta} \mu_{11} \nu_{12} + \tilde{ \eta}^{2} \mu_{12}^{2} \nu_{12} - \tilde{ \eta} \mu_{22} \nu_{12} - \tilde{ \eta}^{2} \mu_{11} \mu_{22} \nu_{12} \right) \\
+		\Theta_{21} = & P \left(- \mu_{12} - \nu_{12} - \tilde{ \eta} \mu_{11} \nu_{12} + \tilde{ \eta}^{2} \mu_{12}^{2} \nu_{12} - \tilde{ \eta} \mu_{22} \nu_{12} - \tilde{ \eta}^{2} \mu_{11} \mu_{22} \nu_{12} \right)
+	\end{split}
+\end{equation}
+Tähistame
+\begin{equation}\label{key}
+	\Gamma_{ \alpha \alpha} = \frac{ \Theta_{ \alpha \alpha}}{ \Phi},\ \Gamma_{12} = \frac{ \Theta_{12}}{P \Phi},\ \Gamma_{21} = \frac{P \Theta_{21}}{ \Phi}
+\end{equation}
+\begin{equation}\label{PiluVorrandiSusteemGamma}
+	\begin{cases}
+		\Delta_{1} = \Delta_{1} \eta_{ 1} \Gamma_{11} + \Delta_{2} \eta_{ 2} \Gamma_{12} \\
+		\Delta_{2} = \Delta_{1} \eta_{ 1} \Gamma_{21} + \Delta_{2} \eta_{ 2} \Gamma_{22}
+	\end{cases}
+\end{equation}
+\end{document}

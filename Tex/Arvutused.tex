@@ -1,0 +1,50 @@
+\documentclass[12pt,a4]{article}
+\usepackage{standalone}
+\usepackage{mathptmx}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage[estonian .notilde]{babel}
+\usepackage{amssymb}
+\usepackage[makeroom]{cancel}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{setspace}
+\onehalfspacing
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[hidelinks]{hyperref}
+\sloppy
+\relpenalty=10000
+\binoppenalty=10000
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={160mm,235mm},
+	left=25mm,
+	top=20mm,
+}
+\usepackage{rotating}
+\usepackage{systeme}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\newcommand{\mathcolorbox}[2]{\colorbox{#1}{$\displaystyle #2$}}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{import}
+\numberwithin{equation}{section}
+
+\begin{document}
+\import{sections/}{Hamiltoniaan}
+\import{sections/}{KeskmiseValjaLahendus}
+\import{sections/}{BogoljubovValatiniTeisendus}
+\import{sections/}{InteraktsioonikonstantideLahendused}
+\import{sections/}{VorrandisusteemiTeisendamine}
+\import{sections/}{VorrandisusteemiUmbertahistamine}
+\import{sections/}{EfektiivseteInteraktsioonikonstantideAnaluus}
+\import{sections/}{FaasisiirdeTemperatuur}
+\import{sections/}{UlijuhtivuspiludeFaasideVahe}
+\import{sections/}{NulltemperatuurneUlijuhtivus}
+\end{document}

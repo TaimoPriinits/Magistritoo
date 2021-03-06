@@ -1,0 +1,87 @@
+\documentclass[class=article, crop=false]{standalone}
+\usepackage{standalone}
+\usepackage{mathptmx}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage[estonian .notilde]{babel}
+\usepackage{amssymb}
+\usepackage[makeroom]{cancel}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{setspace}
+\onehalfspacing
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[hidelinks]{hyperref}
+\sloppy
+\relpenalty=10000
+\binoppenalty=10000
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={160mm,235mm},
+	left=25mm,
+	top=20mm,
+}
+\usepackage{rotating}
+\usepackage{systeme}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\newcommand{\mathcolorbox}[2]{\colorbox{#1}{$\displaystyle #2$}}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\begin{document}
+\section{Efektiivsete interaktsioonikonstantide analüüs}
+Efektiivsete interaktsioonikonstantide sõltuvus interaktsioonikonstantidest
+\begin{equation}\label{key}
+	\begin{split}
+		\Phi = & \Phi ( \mu_{11}, \mu_{22}, \mu_{12}) \\
+		\Theta_{11} = & \Theta_{11} ( \mu_{11}, \mu_{22}, \mu_{12}, \nu_{11}) \\
+		\Theta_{22} = & \Theta_{22} ( \mu_{11}, \mu_{22}, \mu_{12}, \nu_{22}) \\
+		\Theta = & \Theta ( \mu_{11}, \mu_{22}, \mu_{12}, \nu_{12}) \\
+		\Gamma_{11} = & \Gamma_{11} ( \mu_{11}, \mu_{22}, \mu_{12}, \nu_{11}) \\
+		\Gamma_{22} = & \Gamma_{22} ( \mu_{11}, \mu_{22}, \mu_{12}, \nu_{22}) \\
+		\Gamma_{12} = & \Gamma_{12} ( \mu_{11}, \mu_{22}, \mu_{12}, \nu_{12})
+	\end{split}
+\end{equation}
+GRAAFIKUD TEISES FAILIS\\
+Arvestame interaktsioonikonstantide märgiga $ \mu > 0 $ ja $ \nu < 0 $ ja kirjutame efektiivsete interaktsioonikonstantide positiivsed ja negatiivsed liikmed eraldi välja
+\begin{equation}\label{key}
+	\begin{split}
+		\Phi^{+} = & 1 + \tilde{ \eta} \mu_{11} + \tilde{ \eta} \mu_{22} + \tilde{ \eta}^{2} \mu_{11} \mu_{22} \\
+		\Phi^{-} = & - \tilde{ \eta}^{2} \mu_{12}^{2} \\
+		\Theta_{11}^{+} = & \tilde{ \eta} \mu_{12}^{2} - \nu_{11} - \tilde{ \eta} \mu_{11} \nu_{11} - \tilde{ \eta} \mu_{22} \nu_{11} - \tilde{ \eta}^{2} \mu_{11} \mu_{22} \nu_{11} \\
+		\Theta_{11}^{-} = & - \mu_{11} - \tilde{ \eta} \mu_{11} \mu_{22} + \tilde{ \eta}^{2} \mu_{12}^{2} \nu_{11} \\
+		\Theta_{22}^{+} = & \tilde{ \eta} \mu_{12}^{2} - \nu_{22} - \tilde{ \eta} \mu_{11} \nu_{22} - \tilde{ \eta} \mu_{22} \nu_{22} - \tilde{ \eta}^{2} \mu_{11} \mu_{22} \nu_{22} \\
+		\Theta_{22}^{-} = & - \mu_{22} - \tilde{ \eta} \mu_{11} \mu_{22}+ \tilde{ \eta}^{2} \mu_{12}^{2} \nu_{22} \\
+		\Theta^{+} = & - \nu_{12} - \tilde{ \eta} \mu_{11} \nu_{12} - \tilde{ \eta} \mu_{22} \nu_{12} - \tilde{ \eta}^{2} \mu_{11} \mu_{22} \nu_{12} \\
+		\Theta^{-} = & - \mu_{12} + \tilde{ \eta}^{2} \mu_{12}^{2} \nu_{12}
+	\end{split}
+\end{equation}
+Avaldame, mis punktis toimub efektiivsetel interaktsioonikonstantidel märgimuutus
+\begin{equation}\label{key}
+	\begin{split}
+		\Phi^{+} = & \Phi^{-} \\
+		1 + \tilde{ \eta} \mu_{11} + \tilde{ \eta} \mu_{22} + \tilde{ \eta}^{2} \mu_{11} \mu_{22} = & - \tilde{ \eta}^{2} \mu_{12}^{2}
+	\end{split}
+\end{equation}
+\begin{equation}\label{key}
+	\begin{split}
+		\Theta_{11}^{+} = & \Theta_{11}^{-} \\
+	\end{split}
+\end{equation}
+\begin{equation}\label{key}
+	\begin{split}
+		\Theta_{22}^{+} = & \Theta_{22}^{-} \\
+	\end{split}
+\end{equation}
+\begin{equation}\label{key}
+	\begin{split}
+		\Theta^{+} = & \Theta^{-} \\
+	\end{split}
+\end{equation}
+\end{document}

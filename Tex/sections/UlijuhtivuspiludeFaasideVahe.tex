@@ -1,0 +1,71 @@
+\documentclass[class=article, crop=false]{standalone}
+\usepackage{standalone}
+\usepackage{mathptmx}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage[estonian .notilde]{babel}
+\usepackage{amssymb}
+\usepackage[makeroom]{cancel}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{setspace}
+\onehalfspacing
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[hidelinks]{hyperref}
+\sloppy
+\relpenalty=10000
+\binoppenalty=10000
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={160mm,235mm},
+	left=25mm,
+	top=20mm,
+}
+\usepackage{rotating}
+\usepackage{systeme}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\newcommand{\mathcolorbox}[2]{\colorbox{#1}{$\displaystyle #2$}}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\begin{document}
+\section{Ülijuhtivuspilude faaside vahe}
+Teeme võrrandisüsteemis (\ref{PiluVorrandiSusteemTc}) asenduse $ \Delta_{ \alpha \pm} = \left| \Delta_{ \alpha \pm} \right| e^{ \phi_{ \alpha \pm}} $
+\begin{equation}\label{key}
+	\begin{cases}
+		\left. \left| \Delta_{ 1 \pm} \right| e^{ \phi_{ 1 \pm}} \left( \eta_{ \pm} \Gamma_{11} - 1 \right) + \left| \Delta_{ 2 \pm} \right| e^{ \phi_{ 2 \pm}} \eta_{ \pm} \Gamma_{12} = 0 \right| : \left| \Delta_{ 2 \pm} \right| e^{ \phi_{ 2 \pm}}\\
+		\left. \left| \Delta_{ 1 \pm} \right| e^{ \phi_{ 1 \pm}} \eta_{ \pm} \Gamma_{21} + \left| \Delta_{ 2 \pm} \right| e^{ \phi_{ 2 \pm}} \left( \eta_{ \pm} \Gamma_{22} - 1 \right) = 0 \right| : \left| \Delta_{ 2 \pm} \right| e^{ \phi_{ 2 \pm}}
+	\end{cases}
+\end{equation}
+\begin{equation}\label{key}
+	\begin{cases}
+		\frac{\left| \Delta_{ 1 \pm} \right|}{ \left| \Delta_{ 2 \pm} \right|} e^{ \phi_{ 1 \pm} - \phi_{ 2 \pm}} \left( \eta_{ \pm} \Gamma_{11} - 1 \right) + \eta_{ \pm} \Gamma_{12} = 0 \\
+		\frac{\left| \Delta_{ 1 \pm} \right|}{ \left| \Delta_{ 2 \pm} \right|} e^{ \phi_{ 1 \pm} - \phi_{ 2 \pm}} \eta_{ \pm} \Gamma_{21} + \eta_{ \pm} \Gamma_{22} - 1 = 0
+	\end{cases}
+\end{equation}
+\begin{equation}\label{key}
+	\begin{cases}
+		\frac{\left| \Delta_{ 1 \pm} \right|}{ \left| \Delta_{ 2 \pm} \right|} e^{ \phi_{ 1 \pm} - \phi_{ 2 \pm}} \left( \eta_{ \pm} \Gamma_{11} - 1 \right) = - \eta_{ \pm} \Gamma_{12} \\
+		\frac{\left| \Delta_{ 1 \pm} \right|}{ \left| \Delta_{ 2 \pm} \right|} e^{ \phi_{ 1 \pm} - \phi_{ 2 \pm}} \eta_{ \pm} \Gamma_{21} = - \left( \eta_{ \pm} \Gamma_{22} - 1 \right)
+	\end{cases}
+\end{equation}
+\begin{equation}\label{key}
+	\begin{cases}
+		\frac{\left| \Delta_{ 1 \pm} \right|}{ \left| \Delta_{ 2 \pm} \right|} e^{ \phi_{ 1 \pm} - \phi_{ 2 \pm}} = - \frac{ \eta_{ \pm} \Gamma_{12}}{ \eta_{ \pm} \Gamma_{11} - 1} \\
+		\frac{\left| \Delta_{ 1 \pm} \right|}{ \left| \Delta_{ 2 \pm} \right|} e^{ \phi_{ 1 \pm} - \phi_{ 2 \pm}} = - \frac{ \eta_{ \pm} \Gamma_{22} - 1}{ \eta_{ \pm} \Gamma_{21}}
+	\end{cases}
+\end{equation}
+\begin{equation}\label{key}
+	\begin{cases}
+		\frac{\left| \Delta_{ 1 \pm} \right|}{ \left| \Delta_{ 2 \pm} \right|} \frac{ \eta_{ \pm} \Gamma_{11} - 1}{ \eta_{ \pm} \Gamma_{12}} = - e^{ \phi_{ 1 \pm} - \phi_{ 2 \pm}} = \mp 1 \\
+		\frac{\left| \Delta_{ 1 \pm} \right|}{ \left| \Delta_{ 2 \pm} \right|} \frac{ \eta_{ \pm} \Gamma_{21}}{ \eta_{ \pm} \Gamma_{22} - 1} = - e^{ \phi_{ 1 \pm} - \phi_{ 2 \pm}} = \mp 1
+	\end{cases}
+\end{equation}
+Kuna võrrandi vasakul pool olev liige on reaalne suurus, siis saab faaside vahe olla, kas $ 2n \pi $ või $ (2n + 1) \pi $, kus $ n \in \mathbb{Z} $. 
+\end{document}

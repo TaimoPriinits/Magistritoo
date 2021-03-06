@@ -1,0 +1,112 @@
+\documentclass[class=article, crop=false]{standalone}
+\usepackage{standalone}
+\usepackage{mathptmx}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage[estonian .notilde]{babel}
+\usepackage{amssymb}
+\usepackage[makeroom]{cancel}
+\usepackage{amsmath}
+\usepackage{braket}
+\usepackage{setspace}
+\onehalfspacing
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[hidelinks]{hyperref}
+\sloppy
+\relpenalty=10000
+\binoppenalty=10000
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	total={160mm,235mm},
+	left=25mm,
+	top=20mm,
+}
+\usepackage{rotating}
+\usepackage{systeme}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\newcommand{\mathcolorbox}[2]{\colorbox{#1}{$\displaystyle #2$}}
+\usepackage{xcolor}
+\usepackage{soul}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\begin{document}
+\section{Võrrandisüsteemi teisendamine}
+\begin{equation}\label{key}
+	\begin{split}
+		\Delta_{ \alpha \mathbf{k}} = & \sum_{ \mathbf{k}'} [ V_{ \alpha \alpha} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ \alpha -\mathbf{k}' \downarrow} a_{ \alpha \mathbf{k}' \uparrow} \right\rangle + U_{ \alpha \alpha} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ \alpha -\mathbf{k}' \downarrow} a_{ \alpha \mathbf{k}' \uparrow} \right\rangle + \\
+		+ & V_{ \alpha \alpha'} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ \alpha' -\mathbf{k}' \downarrow} a_{ \alpha' \mathbf{k}' \uparrow} \right\rangle + U_{ \alpha \alpha'} ( \mathbf{k}, \mathbf{k}') \left\langle a_{ \alpha' -\mathbf{k}' \downarrow} a_{ \alpha' \mathbf{k}' \uparrow} \right\rangle ]
+	\end{split}
+\end{equation}
+Lähme summeerimiselt üle integreerimisele
+\begin{equation}\label{key}
+	\begin{split}
+		\sum_{ \mathbf{x}} f (y( \mathbf{x})) = \int f (y) \rho (y) d y,
+	\end{split}
+\end{equation}
+kus suurus $ \rho $ on olekute tihedus. \\
+Tähistame
+\begin{equation}\label{etaDefinitsioonid}
+	\begin{split}
+		\eta_{ \alpha} \left( T, \Delta_{ \alpha} \right) = & \int_{0}^{ \hbar \omega_{D}} E^{-1} ( \Delta_{ \alpha}) \tanh \left( \frac{E ( \Delta_{ \alpha})}{2 k_{B} T} \right) d \tilde{ \varepsilon}_{ \alpha} \equiv \eta_{ \alpha} \\
+		\tilde{ \eta}_{ \alpha} \left( T, \tilde{ \Delta}_{ \alpha} \right) = & \int_{ \hbar \omega_{D}}^{ \hbar \omega_{C}} E^{-1} ( \tilde{ \Delta}_{ \alpha}) \tanh \left( \frac{E ( \tilde{ \Delta}_{ \alpha})}{2 k_{B} T} \right) d \tilde{ \varepsilon}_{ \alpha} \equiv \tilde{ \eta}_{ \alpha} \\
+		E ( \Delta_{ \alpha}) \equiv & \sqrt{ \tilde{ \varepsilon}_{ \alpha}^{2} + | \Delta_{ \alpha}|^{2}} \\
+		E ( \tilde{ \Delta}_{ \alpha}) \equiv & \sqrt{ \tilde{ \varepsilon}_{ \alpha}^{2} + | \tilde{ \Delta}_{ \alpha}|^{2}}
+	\end{split}
+\end{equation}
+Ehk
+\begin{equation}\label{key}
+	\Delta_{ \alpha \mathbf{k}} = \sum_{ \alpha} \sum_{ \mathbf{k}'} W_{ \alpha \alpha'} \left\langle a_{ \alpha -\mathbf{k}' \downarrow} a_{ \alpha' \mathbf{k}' \uparrow} \right\rangle = \sum_{ \alpha} W_{ \alpha \alpha'} \rho_{ \alpha'} \eta_{ \alpha'} \Delta_{ \alpha'}
+\end{equation}
+Kordaja $ 1/2 $ kaob ära, kuna muudame integreerimisrajasid $ \int_{- \hbar \omega_{D}}^{ \hbar \omega_{D}} \rightarrow 2 \int_{0}^{ \hbar \omega_{D}} $ ja eeldame, et olekute tihedus $ \rho $ on integreerimisvahemikus konstantne. $ \alpha = 1,2 $, $ \alpha \neq \alpha' $
+\begin{equation}\label{key}
+	\begin{cases}
+		\Delta_{ \alpha} & = - V_{ \alpha \alpha} \rho_{ \alpha} \eta_{ \alpha} \Delta_{ \alpha} - U_{ \alpha \alpha} \rho_{ \alpha} \eta_{ \alpha} \Delta_{ \alpha} - U_{ \alpha \alpha} \rho_{ \alpha} \tilde{ \eta}_{ \alpha} \tilde{ \Delta}_{ \alpha} - \\
+		& - V_{ \alpha \alpha'} \rho_{ \alpha'} \eta_{ \alpha'} \Delta_{ \alpha'} - U_{ \alpha \alpha'} \rho_{ \alpha'} \eta_{ \alpha'} \Delta_{ \alpha'} - U_{ \alpha \alpha'} \rho_{ \alpha'} \tilde{ \eta}_{ \alpha'} \tilde{ \Delta}_{ \alpha'} \\
+		\tilde{ \Delta}_{ \alpha} & = - U_{ \alpha \alpha} \rho_{ \alpha} \tilde{ \eta}_{ \alpha} \tilde{ \Delta}_{ \alpha} - U_{ \alpha \alpha} \rho_{ \alpha} \eta_{ \alpha} \Delta_{ \alpha} - U_{ \alpha \alpha'} \rho_{ \alpha'} \tilde{ \eta}_{ \alpha'} \tilde{ \Delta}_{ \alpha'} - U_{ \alpha \alpha'} \rho_{ \alpha'} \eta_{ \alpha'} \Delta_{ \alpha'}
+	\end{cases}
+\end{equation}
+\subsection{$ \tilde{ \Delta}_{ \alpha} $ eemaldamine võrrandisüsteemist}
+Eemaldame võrrandisüsteemist $ \tilde{ \Delta}_{ \alpha} $
+\begin{equation}\label{key}
+	\begin{split}
+		\Delta_{ \alpha} - \tilde{ \Delta}_{ \alpha} = & - V_{ \alpha \alpha} \rho_{ \alpha} \eta_{ \alpha} \Delta_{ \alpha} - U_{ \alpha \alpha} \rho_{ \alpha} \eta_{ \alpha} \Delta_{ \alpha} - U_{ \alpha \alpha} \rho_{ \alpha} \tilde{ \eta}_{ \alpha} \tilde{ \Delta}_{ \alpha} - \\
+		& - V_{ \alpha \alpha'} \rho_{ \alpha'} \eta_{ \alpha'} \Delta_{ \alpha'} - U_{ \alpha \alpha'} \rho_{ \alpha'} \eta_{ \alpha'} \Delta_{ \alpha'} - U_{ \alpha \alpha'} \rho_{ \alpha'} \tilde{ \eta}_{ \alpha'} \tilde{ \Delta}_{ \alpha'} - \\
+		& - (U_{ \alpha \alpha} \rho_{ \alpha} \tilde{ \eta}_{ \alpha} \tilde{ \Delta}_{ \alpha} - U_{ \alpha \alpha} \rho_{ \alpha} \eta_{ \alpha} \Delta_{ \alpha} - U_{ \alpha \alpha'} \rho_{ \alpha'} \tilde{ \eta}_{ \alpha'} \tilde{ \Delta}_{ \alpha'} - U_{ \alpha \alpha'} \rho_{ \alpha'} \eta_{ \alpha'} \Delta_{ \alpha'}) \Rightarrow \\
+		\Rightarrow \tilde{ \Delta}_{ \alpha} = & \Delta_{ \alpha} + V_{ \alpha \alpha} \rho_{ \alpha} \eta_{ \alpha} \Delta_{ \alpha} + V_{ \alpha \alpha'} \rho_{ \alpha'} \eta_{ \alpha'} \Delta_{ \alpha'}
+	\end{split}
+\end{equation}
+Asendame $ \tilde{ \Delta}_{ \alpha} $ esimesse võrrandisse
+\begin{equation}\label{key}
+	\begin{split}
+		\Delta_{ \alpha} = & - V_{ \alpha \alpha} \rho_{ \alpha} \eta_{ \alpha} \Delta_{ \alpha} - U_{ \alpha \alpha} \rho_{ \alpha} \eta_{ \alpha} \Delta_{ \alpha} - \\
+		& - U_{ \alpha \alpha} \rho_{ \alpha} \tilde{ \eta}_{ \alpha} ( \Delta_{ \alpha} + V_{ \alpha \alpha} \rho_{ \alpha} \eta_{ \alpha} \Delta_{ \alpha} + V_{ \alpha \alpha'} \rho_{ \alpha'} \eta_{ \alpha'} \Delta_{ \alpha'}) - \\
+		& - V_{ \alpha \alpha'} \rho_{ \alpha'} \eta_{ \alpha'} \Delta_{ \alpha'} - U_{ \alpha \alpha'} \rho_{ \alpha'} \eta_{ \alpha'} \Delta_{ \alpha'} - \\
+		& - U_{ \alpha \alpha'} \rho_{ \alpha'} \tilde{ \eta}_{ \alpha'} ( \Delta_{ \alpha'} + V_{ \alpha' \alpha'} \rho_{ \alpha'} \eta_{ \alpha'} \Delta_{ \alpha'} + V_{ \alpha' \alpha} \rho_{ \alpha} \eta_{ \alpha} \Delta_{ \alpha}) = \\
+		= & - V_{ \alpha \alpha} \rho_{ \alpha} \eta_{ \alpha} \Delta_{ \alpha} - U_{ \alpha \alpha} \rho_{ \alpha} \eta_{ \alpha} \Delta_{ \alpha} - U_{ \alpha \alpha} \rho_{ \alpha} \tilde{ \eta}_{ \alpha} \Delta_{ \alpha} - U_{ \alpha \alpha} V_{ \alpha \alpha} \rho_{ \alpha} \tilde{ \eta}_{ \alpha} \rho_{ \alpha} \eta_{ \alpha} \Delta_{ \alpha} - \\
+		& - U_{ \alpha \alpha} V_{ \alpha \alpha'} \rho_{ \alpha} \tilde{ \eta}_{ \alpha} \rho_{ \alpha'} \eta_{ \alpha'} \Delta_{ \alpha'} - V_{ \alpha \alpha'} \rho_{ \alpha'} \eta_{ \alpha'} \Delta_{ \alpha'} - U_{ \alpha \alpha'} \rho_{ \alpha'} \eta_{ \alpha'} \Delta_{ \alpha'} - \\
+		& - U_{ \alpha \alpha'} \rho_{ \alpha'} \tilde{ \eta}_{ \alpha'} \Delta_{ \alpha'} - U_{ \alpha \alpha'} \rho_{ \alpha'} V_{ \alpha' \alpha'} \tilde{ \eta}_{ \alpha'} \rho_{ \alpha'} \eta_{ \alpha'} \Delta_{ \alpha'} - U_{ \alpha \alpha'} V_{ \alpha' \alpha} \rho_{ \alpha'} \tilde{ \eta}_{ \alpha'} \rho_{ \alpha} \eta_{ \alpha} \Delta_{ \alpha}
+	\end{split}
+\end{equation}
+\begin{equation}\label{key}
+	\begin{split}
+		\Delta_{ \alpha} = & \Delta_{ \alpha} (- V_{ \alpha \alpha} \rho_{ \alpha} \eta_{ \alpha} - U_{ \alpha \alpha} \rho_{ \alpha} \eta_{ \alpha} - U_{ \alpha \alpha} \rho_{ \alpha} \tilde{ \eta}_{ \alpha} - \\
+		& - U_{ \alpha \alpha} V_{ \alpha \alpha} \rho_{ \alpha} \tilde{ \eta}_{ \alpha} \rho_{ \alpha} \eta_{ \alpha} - U_{ \alpha \alpha'} V_{ \alpha' \alpha} \rho_{ \alpha'} \tilde{ \eta}_{ \alpha'} \rho_{ \alpha} \eta_{ \alpha}) + \\
+		+ & \Delta_{ \alpha'} (- U_{ \alpha \alpha} V_{ \alpha \alpha'} \rho_{ \alpha} \tilde{ \eta}_{ \alpha} \rho_{ \alpha'} \eta_{ \alpha'} - V_{ \alpha \alpha'} \rho_{ \alpha'} \eta_{ \alpha'} - \\
+		& - U_{ \alpha \alpha'} \rho_{ \alpha'} \eta_{ \alpha'} - U_{ \alpha \alpha'} \rho_{ \alpha'} \tilde{ \eta}_{ \alpha'} - U_{ \alpha \alpha'} V_{ \alpha' \alpha'} \rho_{ \alpha'} \tilde{ \eta}_{ \alpha'} \rho_{ \alpha'} \eta_{ \alpha'})
+	\end{split}
+\end{equation}
+Kirjutame indeksid lahti
+\begin{equation}\label{key}
+	\begin{split}
+		\Delta_{ 1} = & \Delta_{ 1} (- V_{ 1 1} \rho_{ 1} \eta_{ 1} - U_{ 1 1} \rho_{ 1} \eta_{ 1} - U_{ 1 1} \rho_{ 1} \tilde{ \eta}_{ 1} - U_{ 1 1} V_{ 1 1} \rho_{ 1} \tilde{ \eta}_{ 1} \rho_{ 1} \eta_{ 1} - U_{ 1 2} V_{ 2 1} \rho_{ 2} \tilde{ \eta}_{ 2} \rho_{ 1} \eta_{ 1}) + \\
+		+ & \Delta_{ 2} (- U_{ 1 1} V_{ 1 2} \rho_{ 1} \tilde{ \eta}_{ 1} \rho_{ 2} \eta_{ 2} - V_{ 1 2} \rho_{ 2} \eta_{ 2} - U_{ 1 2} \rho_{ 2} \eta_{ 2} - U_{ 1 2} \rho_{ 2} \tilde{ \eta}_{ 2} - U_{ 1 2} V_{ 2 2} \rho_{ 2} \tilde{ \eta}_{ 2} \rho_{ 2} \eta_{ 2}) \\
+		\Delta_{ 2} = & \Delta_{ 2} (- V_{ 2 2} \rho_{ 2} \eta_{ 2} - U_{ 2 2} \rho_{ 2} \eta_{ 2} - U_{ 2 2} \rho_{ 2} \tilde{ \eta}_{ 2} - U_{ 2 2} V_{ 2 2} \rho_{ 2} \tilde{ \eta}_{ 2} \rho_{ 2} \eta_{ 2} - U_{ 2 1} V_{ 1 2} \rho_{ 1} \tilde{ \eta}_{ 1} \rho_{ 2} \eta_{ 2}) + \\
+		+ & \Delta_{ 1} (- U_{ 2 2} V_{ 2 1} \rho_{ 2} \tilde{ \eta}_{ 2} \rho_{ 1} \eta_{ 1} - V_{ 2 1} \rho_{ 1} \eta_{ 1} - U_{ 2 1} \rho_{ 1} \eta_{ 1} - U_{ 2 1} \rho_{ 1} \tilde{ \eta}_{ 1} - U_{ 2 1} V_{ 1 1} \rho_{ 1} \tilde{ \eta}_{ 1} \rho_{ 1} \eta_{ 1})
+	\end{split}
+\end{equation}
+\end{document}
